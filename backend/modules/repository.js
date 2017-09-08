@@ -12,7 +12,7 @@ var contactSchema = new mg.Schema({
     university: String,
     course: String,
     graduation: String,
-    graduation_date: Date,
+    graduationDate: Date,
 
     email: { type: String, unique: true, required: true },
     telephone: Number,
@@ -23,7 +23,7 @@ var contactSchema = new mg.Schema({
     dhbw: { type: Boolean, required: true },
     boarding: { type: Boolean, required: true },
 
-    rating: { type: Number, min: 1, max: 5 },
+    rating: { type: Number, min: 0, max: 5 },
     comment: String,
     department: String,
 
@@ -34,7 +34,7 @@ var contactRepo = mg.model('Contact', contactSchema);
 contactRepo.collection.deleteMany({});
 
 getAllContacts = (callback) => {
-    contactRepo.find(callback).populate('salutation').populate('interest');
+    contactRepo.find(callback);
 }
 
 createContact = function(contact) {
