@@ -18,8 +18,12 @@ app.get('/', (req, res)=> {
 // params: helpers/dummy-object.json
 app.post('/add', (req, res)=> {
     const data = req.body;
-    if (checkIncoming.isValid(data) && validator.validateData(data)) res.send(true);
-    res.send(false);
+    let valid = true;
+
+    if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
+    if (valid) {
+        res.send("23");
+    }
 });
 
 // Update existing entry
