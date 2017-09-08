@@ -22,7 +22,7 @@ app.post('/add', (req, res)=> {
     const data = req.body;
     checkIncoming.isValid(data);
     validator.validateData(data);
-    repo.createContact(req.body);
+    repo.createContact(data);
 });
 
 // Update existing entry

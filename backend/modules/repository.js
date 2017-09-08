@@ -1,12 +1,14 @@
+var mongo = require('mongodb');
 var mg = require('mongoose');
 
-mg.connect('mongodb://10.10.1.2:27017/messeapp');
+
+mg.connect('mongodb://10.59.1.98:27017/messeapp');
 
 var contactSchema = new mg.Schema({
     salutation: { type: mg.Schema.Types.ObjectId, ref: 'Salutation' },
 
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
+    first_name: { type: String, required: true },
+    name: { type: String, required: true },
 
     university: { type: String, required: true },
     course: { type: String, required: true },
@@ -47,20 +49,26 @@ var ratingRepo = mg.model('Rating', ratingSchema);
 contactRepo.collection.deleteMany({});
 salutationRepo.collection.deleteMany({});
 interestRepo.collection.deleteMany({});
-ratingRepo.collection.deleteMany({});
+ratingRepo.collection.deleteMany({}, () => {
+    createInitialValues();
+});
 
-salutationRepo.create(
-    {"code": "mr", "name": "Herr"},
-    {"code": "mrs", "name": "Frau"}
-)
+createInitialValues = () => {
+    salutationRepo.create(
+        {"code": "mr", "name": "Herr"},
+        {"code": "mrs", "name": "Frau"}
+    )
+    
+    interestRepo.create(
+        {"code": "internship", "name": "Praktikum"},
+        {"code": "exam", "name": "Abschlussarbeit"},
+        {"code": "student", "name": "Werkstudent"},
+        {"code": "dhbw", "name": "DHBW"},
+        {"code": "boarding", "name": "Direkteinstieg"}
+    )
+}
 
-interestRepo.create(
-    {"code": "internship", "name": "Praktikum"},
-    {"code": "exam", "name": "Abschlussarbeit"},
-    {"code": "student", "name": "Werkstudent"},
-    {"code": "dhbw", "name": "DHBW"},
-    {"code": "boarding", "name": "Direkteinstieg"}
-)
+
 
 
 getAllSalutations = (callback) => {
