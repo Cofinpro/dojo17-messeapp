@@ -1,0 +1,22 @@
+{
+  "name": "copro-mist",
+  "version": "1.0.0",
+  "description": "Cofinpro Messe Information System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copro-mist/mist.git"
+  },
+  "author": "Cofinpro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/copro-mist/mist/issues"
+  },
+  "homepage": "https://github.com/copro-mist/mist#readme",
+  "dependencies": {
+    "express": "^4.15.4"
+  }
+}
