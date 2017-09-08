@@ -33,6 +33,12 @@ app.post('/rate', (req, res)=> {
 
 });
 
+// Get all entries
+// params:
+app.post('getall', (req, res)=> {
+
+});
+
 // Export data
 // params:
 app.post('/export', (req, res)=> {
