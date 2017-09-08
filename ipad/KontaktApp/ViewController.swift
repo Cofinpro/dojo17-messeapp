@@ -27,17 +27,25 @@ class ViewController: UIViewController {
     var email: String = ""
     @IBOutlet weak var emailTF: UITextField!
     
-    // Studienrichtung und Semesteranzahl des Bewerbers
-    var richtung_anzahl: String = ""
-    @IBOutlet weak var richtung_anzahlTF: UITextField!
+    // Studienrichtung des Bewerbers
+    var richtung: String = ""
+    @IBOutlet weak var richtungTF: UITextField!
+    
+    // Semesteranzahl 
+    var semesteranzahl: String = ""
+    @IBOutlet weak var semesteranzahlTF: UITextField!
 
     // Telefonnummer des Berwerbers
     var telefonnummer: String = ""
     @IBOutlet weak var telefonnummerTF: UITextField!
 
-    // Voraussichtlicher Abschluss und Datum 
-    var abschluss_datum: String = ""
-    @IBOutlet weak var abschluss_datumTF: UITextField!
+    // Voraussichtlicher Abschluss
+    var abschluss: String = ""
+    @IBOutlet weak var abschlussTF: UITextField!
+    
+    // Datum voraussichtl. Abschluss
+    var datum: String = ""
+    @IBOutlet weak var datumTF: UITextField!
     
     // ### Die Checkboxen ###
     
@@ -63,9 +71,11 @@ class ViewController: UIViewController {
         name = nameTF.text!
         hochschule = hochschuleTF.text!
         email = emailTF.text!
-        richtung_anzahl = richtung_anzahlTF.text!
+        richtung = richtungTF.text!
+        semesteranzahl = semesteranzahlTF.text!
         telefonnummer = telefonnummerTF.text!
-        abschluss_datum = abschluss_datumTF.text!
+        abschluss = abschlussTF.text!
+        datum = datumTF.text!
         
         if (beraterschnuppertageSwitch.isOn){ beraterschnuppertage = "Ja"
         }

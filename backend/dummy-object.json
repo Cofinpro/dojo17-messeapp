@@ -1,0 +1,12 @@
+{
+    salutation,
+    firstname,
+    name,
+    university,
+    course,
+    graduation,
+    graduation_date,
+    email,
+    telephone,
+    interest
+}
