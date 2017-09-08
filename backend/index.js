@@ -14,27 +14,27 @@ app.get('/', (req, res)=> {
     res.send('What can i do with the Gartenschuh');
 });
 
-app.post('/', parser, (req, res)=> {
-    res.send('What can i do with the ');
-});
-
 // Add new entry to database
+// params: helpers/dummy-object.json
 app.post('/add', (req, res)=> {
     const data = req.body;
     checkIncoming.isValid(data); 
 });
 
 // Update existing entry
+// params: id, [helpers/dummy-object.json]
 app.post('/update', (req, res)=> {
 
 });
 
 // Add rating to entry
+// params: id, rating
 app.post('/rate', (req, res)=> {
 
 });
 
 // Export data
+// params:
 app.post('/export', (req, res)=> {
 
 });
