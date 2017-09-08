@@ -67,11 +67,11 @@ class JsonFileHandler  {
             "email" : contact.email,
             "telephone" : contact.telephone,
             
-            "interest.internship" : contact.internship,
-            "interest.exam" : contact.exam,
-            "interest.student" : contact.student,
-            "interest.dhbw"  : contact.dhbw,
-            "interest.boarding" : contact.boarding,
+            "internship" : contact.internship,
+            "exam" : contact.exam,
+            "student" : contact.student,
+            "dhbw"  : contact.dhbw,
+            "boarding" : contact.boarding,
             
             "rating" : contact.rating,
             "department" : contact.department,
