@@ -32,9 +32,8 @@ var validatorFunction = function (fomularData) {
   //Not used because the fields doesnt need to be filled
   //if(/3[a-zA-Z]/.test(fomularData.graduation_date) || /[a-zA-Z]/.test(fomularData.telephone)) {
   //  return false;
-  //}//
+  //}
 
-  console.log(validatorFunction(fomularData));
   return true;
 };
 
