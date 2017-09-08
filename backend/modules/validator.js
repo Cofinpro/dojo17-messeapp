@@ -1,5 +1,4 @@
 var validatorFunction = function (fomularData) {
-  console.log('validiere');
   //Check for empty values
   if(fomularData.first_name.trim() === "" ||  /[0-9]/.test(fomularData.first_name) ||
     fomularData.name.trim() === "" || /[0-9]/.test(fomularData.name) ||
