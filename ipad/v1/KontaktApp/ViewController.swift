@@ -65,6 +65,8 @@ class ViewController: UIViewController {
     var direkteinstieg: String = "Nein"
     @IBOutlet weak var direkteinstiegSwitch: UISwitch!
     
+    let jsonFileHandler: JsonFileHandler = JsonFileHandler()
+    
     @IBAction func finishButton(_ sender: Any) {
     
         print("Daten wurden eingegeben")
@@ -93,7 +95,12 @@ class ViewController: UIViewController {
         }
         
         readData()
-        saveData(daten: name)
+        
+        
+        let newContact = Contact(salutation: "salutation", firstname: "firstname", name: "name", university: "university", course: "course", graduation: "graduation", graduationDate: "12.12.2009", email: "email", telephone: "telephone", internship: false, exam: true, student: false, dhbw: false, boarding: false, rating: 3, comment: "Salutation", department: "Tech", timestamp: Date())
+        
+        
+        jsonFileHandler.saveData(contact: newContact);
     }
     
     
