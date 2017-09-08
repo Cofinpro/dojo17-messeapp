@@ -4,20 +4,23 @@ const _ = require('lodash');
 const checkIncoming = require('./modules/checkIncomingData.js');
 
 const app = express();
+const parser = bodyParser.json();
 
 const server = app.listen(3000, function () {
     console.log('Server läuft ');
 });
-app.use(bodyParser.json());
 
 app.get('/', (req, res)=> {
+    res.send('What can i do with the Gartenschuh');
+});
+
+app.post('/', parser, (req, res)=> {
     res.send('What can i do with the ');
-    console.log(req.body);
 });
 
 // Add new entry to database
 app.post('/add', (req, res)=> {
-    
+    const data = req.body;
     checkIncoming.isValid(data); 
 });
 
