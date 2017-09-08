@@ -78,7 +78,7 @@ getAllInterests = (callback) => {
     interestRepo.find(callback);
 }
 getAllContacts = (callback) => {
-    contactRepo.find(callback).populate('salutation').populate('interests');
+    contactRepo.find(callback).populate('salutation').populate('interest');
 }
 
 createContact = function(contact) {
