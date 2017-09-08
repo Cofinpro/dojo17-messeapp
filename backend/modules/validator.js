@@ -1,16 +1,3 @@
-var fomularData = {
-  salutation: "Herr",
-  first_name: "Joe",
-  name: "Doe",
-  university: "Hochschule Darmstadt",
-  course: "Informatik",
-  graduation: "Bachelor of Science Informatik",
-  graduation_date: "01.01.2017",
-  email: "John@doe.com",
-  telephone: "0177/3432432424",
-  interest: "Praktikum"
-};
-
 var validatorFunction = function (fomularData) {
 
   //Check for empty values
@@ -36,8 +23,7 @@ var validatorFunction = function (fomularData) {
   }
 
   //Check number
-  if(/[a-zA-Z]/.test(fomularData.graduation_date) || /[a-zA-Z]/.test(fomularData.telephone))
-  {
+  if(/[a-zA-Z]/.test(fomularData.graduation_date) || /[a-zA-Z]/.test(fomularData.telephone)) {
     return false;
   }
 

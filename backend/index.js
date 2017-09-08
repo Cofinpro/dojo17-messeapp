@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const fieldValidator = require('./modules/validator');
 
 const server = app.listen(3000, function () {
     console.log('Server läuft ');
@@ -12,7 +13,7 @@ app.get('/', (req, res)=> {
 
 // Add new entry to database
 app.post('/add', (req, res)=> {
-    
+
 });
 
 // Update existing entry
