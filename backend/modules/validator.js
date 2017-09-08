@@ -1,7 +1,7 @@
 var validatorFunction = function (fomularData) {
 
   //Check for empty values
-  if(fomularData.first_name.trim() === "" ||  fomula/[0-9]/.test(fomularData.first_name ||
+  if(fomularData.first_name.trim() === "" ||  /[0-9]/.test(fomularData.first_name) ||
     fomularData.name.trim() === "" || /[0-9]/.test(fomularData.name) ||
     fomularData.email.trim() === "")
   {
@@ -34,9 +34,9 @@ var validatorFunction = function (fomularData) {
   //  return false;
   //}//
 
+  console.log(validatorFunction(fomularData));
   return true;
 };
 
 
 module.exports.validateData = validatorFunction;
-console.log(validatorFunction(fomularData));
