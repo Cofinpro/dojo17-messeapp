@@ -1,25 +1,45 @@
 var fomularData = {
-  //Anrede
-  firstName: "Joe",
-  lastName: "Doe",
+  salutation: "Herr",
+  first_name: "Joe",
+  name: "Doe",
   university: "Hochschule Darmstadt",
   course: "Informatik",
-  lastDegree: "Bachelor of Science Informatik",
-  lastDegreeDate: "01.01.2017",
-  eMail: "John@doe.com",
-  telephoneNumber: "0177/3432432424"
+  graduation: "Bachelor of Science Informatik",
+  graduation_date: "01.01.2017",
+  email: "John@doe.com",
+  telephone: "0177/3432432424",
+  interest: "Praktikum"
 };
 
 var validatorFunction = function (fomularData) {
 
   //Check for empty values
   for (var o in fomularData) {
-    if (fomularData[o].trim() === "" || String(fomularData[o]).length < 3) return false;
+    if (fomularData[o].trim() === "" || String(fomularData[o]).length < 3)
+      return false;
   }
 
-  //Values that should only be alphabetic
-  if (/[^a-zA-z ]/.test(fomularData.lastDegree))
-    console.log("incorrect");
+  //Values that shouldn´t contain numbers
+  if (/[0-9]/.test(fomularData.salutation) ||
+      /[0-9]/.test(fomularData.first_name) ||
+      /[0-9]/.test(fomularData.name) ||
+      /[0-9]/.test(fomularData.university) ||
+      /[0-9]/.test(fomularData.course) ||
+      /[0-9]/.test(fomularData.graduation) ||
+      /[0-9]/.test(fomularData.interest)) {
+    return false;
+  }
+
+  //Check Email
+  if(!(/[@]/.test(fomularData.email))) {
+    return false;
+  }
+
+  //Check number
+  if(/[a-zA-Z]/.test(fomularData.graduation_date) || /[a-zA-Z]/.test(fomularData.telephone))
+  {
+    return false;
+  }
 
   return true;
 };
