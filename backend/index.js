@@ -1,15 +1,31 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
+const app = express();
 
-app.post('/', (req, res)=> {
-    console.log(req.body.name);
+const server = app.listen(3000, function () {
+    console.log('Server läuft ');
 });
 
-app.get('/newentry', (req, res) => {
-    res.send('NEUER EINTRAG WURDE GEMACHT');
+app.get('/', (req, res)=> {
+    res.send('What can i do with the ');
 });
 
-app.listen(3000, function () {
-  console.log('mist backend läuft...');
+// Add new entry to database
+app.post('/add', (req, res)=> {
+    
+});
+
+// Update existing entry
+app.post('/update', (req, res)=> {
+
+});
+
+// Add rating to entry
+app.post('/rate', (req, res)=> {
+
+});
+
+// Export data
+app.post('/export', (req, res)=> {
+
 });
