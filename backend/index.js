@@ -41,8 +41,6 @@ app.post('/contact', (req, res)=> {
     else res.send("data invalid")
 });
 
-// Update existing entry
-// params: id, [helpers/dummy-object.json]
 app.patch('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
