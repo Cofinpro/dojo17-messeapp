@@ -37,11 +37,14 @@ getAllContacts = (callback) => {
     contactRepo.find(callback);
 }
 
-createContact = function(contact) {
-    contactRepo.create(contact, (err, post) => {
-        if (err) console.log(err)
-    })
+createContact = (contact) => {
+    return contactRepo.create(contact);
+}
+
+updateContact = (id, contact, callback) => {
+    return contactRepo.findByIdAndUpdate(id, contact, callback);
 }
 
 module.exports.getAllContacts = getAllContacts;
 module.exports.createContact = createContact;
+module.exports.updateContact = updateContact;

@@ -16,54 +16,48 @@ app.get('/', (req, res)=> {
     res.send('What can i do with the Gartenschuh');
 });
 
+// Get all entries
+// params:
+app.get('/contact', (req, res)=> {
+    repo.getAllContacts((err, post) => {
+        if (err) res.send(err)
+        res.send(post);
+    })
+});
+
 // Add new entry to database
 // params: helpers/dummy-object.json
-app.post('/add', (req, res)=> {
+app.post('/contact', (req, res)=> {
     const data = req.body;
     let valid = true;
 
     if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
     if (valid) {
-        repo.createContact(data);
-        res.send("23");
+        repo.createContact(data).then(
+            (object) => res.send(object),
+            (err) => res.send(err)
+        );
     }
-    else res.send()
+    else res.send("data invalid")
 });
 
 // Update existing entry
 // params: id, [helpers/dummy-object.json]
-app.post('/update', (req, res)=> {
+app.patch('/contact', (req, res) => {
+    const data = req.body;
+    let valid = true;
 
-});
-
-// Add rating to entry
-// params: id, rating
-app.post('/rate', (req, res)=> {
-
-});
-
-// Get all entries
-// params:
-app.get('/getall', (req, res)=> {
-    repo.getAllContacts((err, post) => {
-        res.send(post);
-    })
+    if (!checkIncoming.isValid(data.object) || !validator.validateData(data.object)) valid = false;
+    if (valid) {
+        repo.updateContact(data.id, data.object, (err, post) => {
+            res.send(post);
+        });
+    }
+    else res.send("data invalid")
 });
 
 // Export data
 // params:
 app.post('/export', (req, res)=> {
 
-});
-
-app.get('/interests', (req, res)=> {
-    repo.getAllInterests((err, post) => {
-        res.send(post);
-    })
-});
-
-app.get('/salutations', (req, res)=> {
-    repo.getAllSalutations((err, post) => {
-        res.send(post);
-    })
 });
