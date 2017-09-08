@@ -1,10 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData.js');
 const validator = require('./modules/validator.js');
 
 const app = express();
 app.use(bodyParser.json());
+
 
 const server = app.listen(3000, function () {
     console.log('Server läuft ');
@@ -14,17 +16,29 @@ app.get('/', (req, res)=> {
     res.send('What can i do with the Gartenschuh');
 });
 
+// Get all entries
+// params:
+app.get('/contact', (req, res)=> {
+    repo.getAllContacts((err, post) => {
+        if (err) res.send(err)
+        res.send(post);
+    })
+});
+
 // Add new entry to database
 // params: helpers/dummy-object.json
-app.post('/add', (req, res)=> {
+app.post('/contact', (req, res)=> {
     const data = req.body;
     let valid = true;
 
     if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
     if (valid) {
-        res.send("23");
+        repo.createContact(data).then(
+            (object) => res.send(object),
+            (err) => res.send(err)
+        );
     }
-    else res.send()
+    else res.send("data invalid")
 });
 
 // Update existing entry
@@ -45,14 +59,21 @@ app.post('/getall', (req, res)=> {
 
 });
 
+app.patch('/contact', (req, res) => {
+    const data = req.body;
+    let valid = true;
+
+    if (!checkIncoming.isValid(data.object) || !validator.validateData(data.object)) valid = false;
+    if (valid) {
+        repo.updateContact(data.id, data.object, (err, post) => {
+            res.send(post);
+        });
+    }
+    else res.send("data invalid")
+});
+
 // Export data
 // params:
 app.post('/export', (req, res)=> {
 
 });
-
-const moment = require('moment');
-dateString = '2017-09-08T10:23:43.511Z';
-let m = moment();
-m = moment(dateString);
-console.log(m.format('DD.MM.YYYY HH:MM'));
