@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85D8A8921F635C09008154A1 /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */; };
 		85DDF5411F62E80D00B88C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5401F62E80D00B88C32 /* AppDelegate.swift */; };
 		85DDF5431F62E80D00B88C32 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5421F62E80D00B88C32 /* FirstViewController.swift */; };
 		85DDF5451F62E80D00B88C32 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5441F62E80D00B88C32 /* SecondViewController.swift */; };
 		85DDF5481F62E80D00B88C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5461F62E80D00B88C32 /* Main.storyboard */; };
 		85DDF54A1F62E80D00B88C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5491F62E80D00B88C32 /* Assets.xcassets */; };
 		85DDF54D1F62E80D00B88C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF54B1F62E80D00B88C32 /* LaunchScreen.storyboard */; };
-		85DDF5551F62F32A00B88C32 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5541F62F32A00B88C32 /* CosmosDistrib.swift */; };
 		85DDF5571F62F7DD00B88C32 /* hari&dani.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */; };
 		85DDF5591F6300AD00B88C32 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5581F6300AD00B88C32 /* Contact.swift */; };
+		85F1A0C91F63565E00EB50D3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0C81F63565E00EB50D3 /* Rating.swift */; };
+		85F1A0CB1F63577400EB50D3 /* RatingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */; };
+		85F1A0CF1F635AAB00EB50D3 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		85DDF53D1F62E80D00B88C32 /* KontaktApp4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KontaktApp4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DDF5401F62E80D00B88C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85DDF5421F62E80D00B88C32 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -27,9 +31,11 @@
 		85DDF5491F62E80D00B88C32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85DDF54C1F62E80D00B88C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85DDF54E1F62E80D00B88C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85DDF5541F62F32A00B88C32 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hari&dani.jpg"; sourceTree = "<group>"; };
 		85DDF5581F6300AD00B88C32 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		85F1A0C81F63565E00EB50D3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
+		85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewController.swift; sourceTree = "<group>"; };
+		85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,8 +68,9 @@
 		85DDF53F1F62E80D00B88C32 /* KontaktApp4 */ = {
 			isa = PBXGroup;
 			children = (
+				85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */,
+				85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */,
 				85DDF5581F6300AD00B88C32 /* Contact.swift */,
-				85DDF5541F62F32A00B88C32 /* CosmosDistrib.swift */,
 				85DDF5401F62E80D00B88C32 /* AppDelegate.swift */,
 				85DDF5421F62E80D00B88C32 /* FirstViewController.swift */,
 				85DDF5441F62E80D00B88C32 /* SecondViewController.swift */,
@@ -72,6 +79,8 @@
 				85DDF5491F62E80D00B88C32 /* Assets.xcassets */,
 				85DDF54B1F62E80D00B88C32 /* LaunchScreen.storyboard */,
 				85DDF54E1F62E80D00B88C32 /* Info.plist */,
+				85F1A0C81F63565E00EB50D3 /* Rating.swift */,
+				85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */,
 			);
 			path = KontaktApp4;
 			sourceTree = "<group>";
@@ -153,8 +162,11 @@
 				85DDF5451F62E80D00B88C32 /* SecondViewController.swift in Sources */,
 				85DDF5411F62E80D00B88C32 /* AppDelegate.swift in Sources */,
 				85DDF5591F6300AD00B88C32 /* Contact.swift in Sources */,
+				85F1A0CF1F635AAB00EB50D3 /* CosmosDistrib.swift in Sources */,
+				85D8A8921F635C09008154A1 /* RatingTableViewCell.swift in Sources */,
 				85DDF5431F62E80D00B88C32 /* FirstViewController.swift in Sources */,
-				85DDF5551F62F32A00B88C32 /* CosmosDistrib.swift in Sources */,
+				85F1A0CB1F63577400EB50D3 /* RatingTableViewController.swift in Sources */,
+				85F1A0C91F63565E00EB50D3 /* Rating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +332,7 @@
 				85DDF5531F62E80D00B88C32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
