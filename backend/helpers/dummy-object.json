@@ -1,13 +1,25 @@
 {
     "salutation": "",
-    "first_name": "",
+    "firstname": "",
     "name": "",
+
     "university": "",
     "course": "",
     "graduation": "",
-    "graduation_date": "",
+    "graduationDate": "",
+    
     "email": "",
     "telephone": "",
-    "interest": "",
+    
+    "internship": "",
+    "exam": "",
+    "student": "",
+    "dhbw": "",
+    "boarding": "",
+
+    "rating": "",
+    "comment": "",
+    "department": "",
+
     "timestamp": ""
 }
