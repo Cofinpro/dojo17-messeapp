@@ -30,7 +30,7 @@ app.post('/add', (req, res)=> {
 // Update existing entry
 // params: id, [helpers/dummy-object.json]
 app.post('/update', (req, res)=> {
-
+    
 });
 
 // Add rating to entry
@@ -50,3 +50,9 @@ app.post('/getall', (req, res)=> {
 app.post('/export', (req, res)=> {
 
 });
+
+const moment = require('moment');
+dateString = '2017-09-08T10:23:43.511Z';
+let m = moment();
+m = moment(dateString);
+console.log(m.format('DD.MM.YYYY HH:MM'));
