@@ -18,7 +18,7 @@ app.get('/', (req, res)=> {
 // params: helpers/dummy-object.json
 app.post('/add', (req, res)=> {
     const data = req.body;
-    checkIncoming.isValid(data);
+    checkIncoming.isValid(data); 
 });
 
 // Update existing entry
@@ -30,6 +30,12 @@ app.post('/update', (req, res)=> {
 // Add rating to entry
 // params: id, rating
 app.post('/rate', (req, res)=> {
+
+});
+
+// Get all entries
+// params:
+app.post('getall', (req, res)=> {
 
 });
 
