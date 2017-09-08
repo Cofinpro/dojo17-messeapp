@@ -44,8 +44,10 @@ app.post('/rate', (req, res)=> {
 
 // Get all entries
 // params:
-app.post('/getall', (req, res)=> {
-
+app.get('/getall', (req, res)=> {
+    repo.getAllContacts((err, post) => {
+        res.send(post);
+    })
 });
 
 // Export data
@@ -62,12 +64,6 @@ app.get('/interests', (req, res)=> {
 
 app.get('/salutations', (req, res)=> {
     repo.getAllSalutations((err, post) => {
-        res.send(post);
-    })
-});
-
-app.get('/contacts', (req, res)=> {
-    repo.getAllContacts((err, post) => {
         res.send(post);
     })
 });
