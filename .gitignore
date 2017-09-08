@@ -59,3 +59,4 @@ typings/
 
 #webstorm ide files
 .idea
+backend/package-lock.json
