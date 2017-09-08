@@ -1,4 +1,4 @@
-const file = '../helpers/dummy-object.json';
+const file = './helpers/dummy-object.json';
 const fs = require('fs');
 const objectTemplate = JSON.parse(fs.readFileSync(file, 'utf8'));
 
