@@ -20,9 +20,14 @@ app.get('/', (req, res)=> {
 // params: helpers/dummy-object.json
 app.post('/add', (req, res)=> {
     const data = req.body;
-    checkIncoming.isValid(data);
-    validator.validateData(data);
-    repo.createContact(data);
+    let valid = true;
+
+    if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
+    if (valid) {
+        repo.createContact(data);
+        res.send("23");
+    }
+    else res.send()
 });
 
 // Update existing entry
