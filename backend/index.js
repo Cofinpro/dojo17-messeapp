@@ -24,6 +24,7 @@ app.post('/add', (req, res)=> {
     if (valid) {
         res.send("23");
     }
+    else res.send()
 });
 
 // Update existing entry
