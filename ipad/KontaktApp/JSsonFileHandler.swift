@@ -17,17 +17,17 @@ class JsonFileHandler  {
     
     func saveData(contact: Contact){
         
-        let daten = "";
+        let json = writeJson(contact: contact);
         
         let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
-        let fileURL = DocumentDirURL.appendingPathComponent(storageFile).appendingPathExtension("txt")
+        let fileURL = DocumentDirURL.appendingPathComponent(UUID().uuidString).appendingPathExtension("json")
         
         //print("Dateipfad: \(fileURL.path)")
         
         do {
             // In Datei schreiben
-            try daten.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+            try json.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
         } catch let error as NSError {
             print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
         }
@@ -52,6 +52,10 @@ class JsonFileHandler  {
     }
     
     func toProps(contact: Contact) ->[String : Any]{
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        
         return [
             "salutation" : contact.salutation,
             "firstname" : contact.firstname,
@@ -71,12 +75,33 @@ class JsonFileHandler  {
             
             "rating" : contact.rating,
             "department" : contact.department,
-            "comment" : contact.comment];
+            "comment" : contact.comment,
+            
+            "timestamp":dateFormatter.string(from: contact.timestamp)];
     }
     
-    func fromProps(json: String) -> Contact{
+    func fromProps(prop: [String : Any]) -> Contact?{
+        let newContact = Contact(
+            salutation: (String)prop["salutation"],
+            firstname: prop["firstname"],
+            name: prop["name"],
+            university: prop["university"],
+            course: prop["course"],
+            graduation: prop["graduation"],
+            graduationDate: prop["graduationDate"],
+            email: prop["email"],
+            telephone: prop["telephone"],
+            internship: prop["interest"]["internship"],
+            exam: prop["interest"]["exam"],
+            student: prop["interest"]["student"],
+            dhbw: prop["interest"]["dhbw"],
+            boarding: prop["interest"]["boarding"],
+            rating: prop["rating"],
+            comment: prop["comment"],
+            department: prop["department"],
+            timestamp: prop["timestamp"])
         
-        return  Contact();
+        return newContact
         
     }
     
@@ -104,12 +129,13 @@ class JsonFileHandler  {
      }*/
     
     func writeJson(contact: Contact) -> String {
-        let props = toProps(contact)
+        let props = toProps(contact: contact)
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: props,
                                                       options: .prettyPrinted)
-            return String(data: jsonData, encoding: String.Encoding.utf8)
+            let s = String(data: jsonData, encoding: String.Encoding.utf8)
+            return s!;
         } catch let error {
             print("error converting to json: \(error)")
             return ""
