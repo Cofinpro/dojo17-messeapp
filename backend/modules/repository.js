@@ -19,7 +19,7 @@ var contactSchema = new mg.Schema({
     email: { type: String, unique: true, required: true },
     telephone: Number,
 
-    interests: [{ type: mg.Schema.Types.ObjectId, ref: 'Interest', required: true }],
+    interest: [{ type: mg.Schema.Types.ObjectId, ref: 'Interest', required: true }],
 
     timestamp: { type: Date, default: Date.now }
 });

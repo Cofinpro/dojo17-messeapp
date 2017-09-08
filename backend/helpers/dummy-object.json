@@ -8,14 +8,6 @@
     "graduation_date": "",
     "email": "",
     "telephone": "",
-    "interest": {
-        "internship": "",
-        "exam": "",
-        "student": "",
-        "dhbw": "",
-        "boarding": ""
-    },
-    "rating": "",
-    "comment": "",
+    "interest": "",
     "timestamp": ""
 }
