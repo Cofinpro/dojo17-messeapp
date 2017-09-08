@@ -1,5 +1,5 @@
 var validatorFunction = function (fomularData) {
-
+  console.log('validiere');
   //Check for empty values
   for (var o in fomularData) {
     if (fomularData[o].trim() === "" || String(fomularData[o]).length < 3)
@@ -35,4 +35,3 @@ var validatorFunction = function (fomularData) {
 
 
 module.exports.validateData = validatorFunction;
-console.log(validatorFunction(fomularData));

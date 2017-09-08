@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const _ = require('lodash');
 const checkIncoming = require('./modules/checkIncomingData.js');
+const validator = require('./modules/validator.js');
 
 const app = express();
 const parser = bodyParser.json();
@@ -16,9 +16,10 @@ app.get('/', (req, res)=> {
 
 // Add new entry to database
 // params: helpers/dummy-object.json
-app.post('/add', (req, res)=> {
+app.post('/add', parser, (req, res)=> {
     const data = req.body;
-    checkIncoming.isValid(data); 
+    checkIncoming.isValid(data);
+    validator.validateData(data);
 });
 
 // Update existing entry
@@ -35,7 +36,7 @@ app.post('/rate', (req, res)=> {
 
 // Get all entries
 // params:
-app.post('getall', (req, res)=> {
+app.post('/getall', (req, res)=> {
 
 });
 

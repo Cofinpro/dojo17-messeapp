@@ -1,5 +1,6 @@
-const file = './helpers/dummy-object.json';
+const _ = require('lodash');
 const fs = require('fs');
+const file = './helpers/dummy-object.json';
 const objectTemplate = JSON.parse(fs.readFileSync(file, 'utf8'));
 
 compareWithTemplate = function(dataObject) {
