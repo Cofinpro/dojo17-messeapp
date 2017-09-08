@@ -13,7 +13,10 @@ var validatorFunction = function (fomularData) {
       /[0-9]/.test(fomularData.university) ||
       /[0-9]/.test(fomularData.course) ||
       /[0-9]/.test(fomularData.graduation) ||
-      /[0-9]/.test(fomularData.interest)) {
+      /[0-9]/.test(fomularData.interest.exam ||
+      /[0-9]/.test(fomularData.interest.student) ||
+      /[0-9]/.test(fomularData.interest.dhbw) ||
+      /[0-9]/.test(fomularData.boarding))) {
     return false;
   }
 
