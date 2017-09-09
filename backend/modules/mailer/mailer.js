@@ -21,7 +21,7 @@ const sendExport = function(dataObject) {
     renderTemplate(dataObject, global.config.subjectExport, 'export');
 }
 
-const renderTemplate = function(dataObject, subject, templateName) {  
+const renderTemplate = function(dataObject, subject, templateName) {
     const templateDir = path.join(__dirname, 'templates', templateName);
     const template = new EmailTemplate(templateDir);
     const exportData = templateName == 'export' ? true : false; 
