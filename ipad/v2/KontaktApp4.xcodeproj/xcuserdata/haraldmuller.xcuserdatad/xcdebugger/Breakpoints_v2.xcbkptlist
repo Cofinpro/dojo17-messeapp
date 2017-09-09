@@ -211,5 +211,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KontaktApp4/JSsonFileHandler.swift"
+            timestampString = "526652218.247767"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "getData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KontaktApp4.JsonFileHandler.getData () throws -&gt; Swift.Array&lt;KontaktApp4.Contact&gt;"
+                  moduleName = "KontaktApp4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/haraldmuller/dev/dojo17-messeapp/ipad/v2/KontaktApp4/JSsonFileHandler.swift"
+                  timestampString = "526653144.674055"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "5140">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KontaktApp4.JsonFileHandler.(getData () throws -&gt; Swift.Array&lt;KontaktApp4.Contact&gt;).(closure #1)"
+                  moduleName = "KontaktApp4"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/haraldmuller/dev/dojo17-messeapp/ipad/v2/KontaktApp4/JSsonFileHandler.swift"
+                  timestampString = "526653144.675375"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "180"
+                  endingLineNumber = "180"
+                  offsetFromSymbolStart = "1100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

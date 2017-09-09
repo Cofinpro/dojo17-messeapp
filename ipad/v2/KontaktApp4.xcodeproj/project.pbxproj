@@ -15,7 +15,6 @@
 		85DDF54D1F62E80D00B88C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF54B1F62E80D00B88C32 /* LaunchScreen.storyboard */; };
 		85DDF5571F62F7DD00B88C32 /* hari&dani.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */; };
 		85DDF5591F6300AD00B88C32 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5581F6300AD00B88C32 /* Contact.swift */; };
-		85F1A0C91F63565E00EB50D3 /* Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0C81F63565E00EB50D3 /* Rating.swift */; };
 		85F1A0CB1F63577400EB50D3 /* RatingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */; };
 		85F1A0CF1F635AAB00EB50D3 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */; };
 		A4B469871F63D5F20070E0E0 /* JSsonFileHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B469861F63D5F20070E0E0 /* JSsonFileHandler.swift */; };
@@ -32,7 +31,6 @@
 		85DDF54E1F62E80D00B88C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hari&dani.jpg"; sourceTree = "<group>"; };
 		85DDF5581F6300AD00B88C32 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
-		85F1A0C81F63565E00EB50D3 /* Rating.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rating.swift; sourceTree = "<group>"; };
 		85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewController.swift; sourceTree = "<group>"; };
 		85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
 		A4B469861F63D5F20070E0E0 /* JSsonFileHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSsonFileHandler.swift; sourceTree = "<group>"; };
@@ -79,7 +77,6 @@
 				85DDF5491F62E80D00B88C32 /* Assets.xcassets */,
 				85DDF54B1F62E80D00B88C32 /* LaunchScreen.storyboard */,
 				85DDF54E1F62E80D00B88C32 /* Info.plist */,
-				85F1A0C81F63565E00EB50D3 /* Rating.swift */,
 				85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */,
 			);
 			path = KontaktApp4;
@@ -166,7 +163,6 @@
 				A4B469871F63D5F20070E0E0 /* JSsonFileHandler.swift in Sources */,
 				85D8A8921F635C09008154A1 /* RatingTableViewCell.swift in Sources */,
 				85F1A0CB1F63577400EB50D3 /* RatingTableViewController.swift in Sources */,
-				85F1A0C91F63565E00EB50D3 /* Rating.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
