@@ -20,8 +20,9 @@
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
     "lodash": "^4.17.4",
-    "moment": "^2.18.1",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.11.10"
+    "mongoose": "^4.11.10",
+    "sendmail": "^1.2.0",
+    "moment": "^2.18.1"
   }
 }

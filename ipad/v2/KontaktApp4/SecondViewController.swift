@@ -74,10 +74,18 @@ class SecondViewController: UIViewController {
     @IBAction func saveForm(_ sender: Any) {
         
         print("Form was saved")
+        saveData(storageFile: "Daten1", daten: "Daniel")
+        saveData(storageFile: "Daten2", daten: "Harald")
+        saveData(storageFile: "Daten3", daten: "Michael")
+        
+        listFilesOnDevice()
+        readData()
         
         // let newContact = Contact(salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: <#T##Int#>, comment: <#T##String#>, department: <#T##String#>, timestamp: <#T##Date#>)
         
     }
+    
+    
 
     @IBAction func resetForm(_ sender: Any) {
         
@@ -95,6 +103,58 @@ class SecondViewController: UIViewController {
         examSwitch.setOn(false, animated: true)
         dhbwSwitch.setOn(false, animated: true)
         boardingSwitch.setOn(false, animated: true)
+    }
+    
+    func listFilesOnDevice() {
+        
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        do {
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+            print(directoryContents)
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func readData(){
+        
+        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        do {
+            var readString: String = ""
+            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
+            
+            for i in 0...directoryContents.count - 1{
+            readString = try String(contentsOf: directoryContents[i])
+            print("Gespeicherte Daten: \(readString)")
+            }
+
+            
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    
+        
+    }
+    
+    func saveData(storageFile: String, daten: String){
+        
+        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+        
+        let fileURL = DocumentDirURL.appendingPathComponent(storageFile).appendingPathExtension("txt")
+        
+        //print("Dateipfad: \(fileURL.path)")
+        
+        do {
+            // In Datei schreiben
+            try daten.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
+        } catch let error as NSError {
+            print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
+        }
+        
     }
     
     
