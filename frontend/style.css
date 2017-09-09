@@ -29,3 +29,18 @@ margin-top: 10px;
 .form-control-fixed-height {
     height: 50px!important;
 }
+
+.logo{
+    max-width: 100%;
+}
+
+.navbarnopadding{
+
+    padding-top: 0px;
+    font-size: 1.25rem;
+}
+
+.rowmargin{
+    
+        margin-top: 20px;
+    }
