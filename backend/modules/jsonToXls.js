@@ -36,6 +36,21 @@ var SaveJsonAsXls = function(jsonArr)
     else
       value.boarding = "Ja";
 
+    if (value.departmentTechnical === false)
+      value.departmentTechnical = "";
+    else
+      value.departmentTechnical = "Ja";
+
+    if (value.departmentBank === false)
+      value.departmentBank = "";
+    else
+      value.departmentBank = "Ja";
+
+    if (value.departmentCentral === false)
+      value.departmentCentral = "";
+    else
+      value.departmentCentral = "Ja";
+
     //Datum parsen
     var graduationDate = new Date(value.graduationDate);
     var m = moment(graduationDate);
