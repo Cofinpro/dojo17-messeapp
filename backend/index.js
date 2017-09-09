@@ -8,7 +8,6 @@ const validator = require('./modules/validator');
 const exporter =  require('./modules/jsonToXls');
 //const sec = require('./modules/security-oauth');
 const mailer = require('./modules/mailer/mailer.js');
-const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.json());
