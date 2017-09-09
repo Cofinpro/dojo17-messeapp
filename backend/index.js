@@ -21,32 +21,6 @@ const server = app.listen(3000, function () {
 
 app.get('/', (req, res)=> {
     res.send('What can i do with the Gartenschuh');
-    db = {
-        "salutation": "",
-        "firstname": "Julian",
-        "name": "Reichwein",
-    
-        "university": "",
-        "course": "",
-        "graduation": "",
-        "graduationDate": "",
-        
-        "email": "jul.ricovino@gmail.com",
-        "telephone": "",
-        
-        "internship": "",
-        "exam": "",
-        "student": "",
-        "dhbw": "",
-        "boarding": "",
-    
-        "rating": "",
-        "comment": "",
-        "department": "",
-    
-        "timestamp": ""
-    };
-    mailer.sendResponse(db)
 });
 
 // Get all entries
