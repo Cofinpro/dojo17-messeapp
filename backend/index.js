@@ -3,7 +3,6 @@ const fs = require('fs');
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
-const checkIncoming = require('./modules/checkIncomingData');
 const validator = require('./modules/validator');
 const exporter =  require('./modules/jsonToXls');
 //const sec = require('./modules/security-oauth');
@@ -38,25 +37,31 @@ app.get('/contact', (req, res)=> {
 app.post('/contact', (req, res)=> {
     const data = req.body;
     let valid = true;
-    
-    repo.createContact(data).then(
-        (object) => {
-            res.send(object);
-        },
-        (err) => res.send(err)
-    );
+
+    if (validator.validateData(data)) {
+        repo.createContact(data).then(
+            (object) => {
+                res.send(object);
+            },
+            (err) => res.send(err)
+        );
+    }
+    else res.send("data invalid");
 });
 
 app.put('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
 
-    repo.updateContact(data.id, data.object, (err, post) => {
-        if (err) res.send(err)
+    if (validator.validateData(data.object)) {
+        repo.updateContact(data.id, data.object, (err, post) => {
+            if (err) res.send(err)
 
-        mailer.sendResponse(post);
-        res.send(post);
-    });
+            mailer.sendResponse(post);
+            res.send(post);
+        });
+    }
+    else res.send("data invalid")
 });
 
 // Export data and provide as XLS as download
