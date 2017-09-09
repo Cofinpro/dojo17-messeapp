@@ -211,7 +211,7 @@ class JsonFileHandler  {
             // check for any errors
             guard error == nil else {
                 print("error calling GET on /todos/1")
-                print(error)
+                print(error!)
                 return
             }
             // make sure we got data
