@@ -1,37 +1,40 @@
 const mail = require('sendmail')();
 const EmailTemplate = require('email-templates').EmailTemplate;
 var path = require('path');
+var fs = require('fs');
 
-const sendResponse = function(receiver) {
-    renderTemplate(receiver, 'response');
+
+const sendResponse = function(dataObject) {
+    renderTemplate(dataObject, global.config.subjectResponse, 'response');
 }
 
-const sendExport = function(receiver) {
-    renderTemplate('karriere@cofinpro.de', 'Messeinteressenten Excel Export', 'export');
+const sendExport = function(dataObject) {
+    renderTemplate(dataObject, global.config.subjectExport, 'export');
 }
 
-const renderTemplate = function(receive, template) {  
-    const templateDir = path.join(__dirname, 'templates', template);
-    
-    let responseTemplate = new EmailTemplate(templateDir);
-    responseTemplate.render(user, (err, result)=> {
-        createMailRequestAndSend(receiver, 'Kennenlernen der Cofinpro', result.html);
+const renderTemplate = function(dataObject, subject, templateName) {  
+    const templateDir = path.join(__dirname, 'templates', templateName);
+    const template = new EmailTemplate(templateDir);
+    const exportData = templateName == 'export' ? true : false; 
+
+    console.log(dataObject);
+
+    template.render(dataObject, (err, result)=> {
+        if (err) throw err;
+        createMailRequestAndSend(dataObject.email, subject, result.html, exportData);
     });
 }
 
-const createMailRequestAndSend = function(receiver, subject, content) {
-    mail({
-        from: '#_Karriere<karriere@cofinpro.de>',
+const createMailRequestAndSend = function(receiver, subject, content, exportData) {
+    let mailOptions = {
+        from: global.config.fromMail,
         to: receiver,
         subject: subject,
-        html: content,
-        attachements: [{
-            filename: 'data.xlsx',
-            path: './backend/export/'
-        }]
-    }, ()=> {
-        console.log('done');
-    });
+        html: content
+    }
+    if (exportData) mailOptions.attachments = [{ path: './export/data.xlsx' }];
+    
+    mail(mailOptions, ()=> { console.log('done'); });
 }
 
 module.exports.sendResponse = sendResponse;
