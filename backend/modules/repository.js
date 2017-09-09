@@ -2,7 +2,7 @@ var mongo = require('mongodb');
 var mg = require('mongoose');
 
 
-mg.connect('mongodb://10.59.1.98:27017/messeapp');
+mg.connect('mongodb://10.59.1.98:27017/messeapp_dev');
 
 var contactSchema = new mg.Schema({
     salutation: { type: String, required: true },

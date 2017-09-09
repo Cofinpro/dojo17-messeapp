@@ -87,8 +87,13 @@ app.get('/downloadExport', (req, res)=> {
 
 // Generate export and send per mail
 app.get('/sendExport', (req, res) => {
-    res.send('mail raus');
-    dataObject = {};
-    dataObject.email = global.config.exportMail;
-    mailer.sendExport(dataObject);
+    repo.getAllContacts((err, contactArray) => {
+        path = exporter.JsonToXls(contactArray);
+        dataObject = {};
+        dataObject.email = global.config.exportMail;
+        dataObject.path = path;
+    
+        mailer.sendExport(dataObject);
+        res.send('mail raus'); 
+    });
 });

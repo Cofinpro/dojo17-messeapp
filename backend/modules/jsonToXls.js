@@ -52,12 +52,9 @@ var SaveJsonAsXls = function(jsonArr)
       value.departmentCentral = "Ja";
 
     //Datum parsen
-    if(graduationDate != null)
-    {
-      var graduationDate = new Date(value.graduationDate);
-      var m = moment(graduationDate);
-      value.graduationDate = m.format("DD.MM.YYYY HH:MM");
-    }
+    var graduationDate = new Date(value.graduationDate);
+    var m = moment(graduationDate);
+    value.graduationDate = m.format("DD.MM.YYYY HH:MM");
 
     var timestamp = new Date(value.timestamp);
     m = moment(timestamp);
