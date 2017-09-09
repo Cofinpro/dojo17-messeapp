@@ -29,7 +29,10 @@ struct Contact {
     
     var rating = 0;
     var comment = "";
-    var department = "";
+    
+    var departmentCentral = false;
+    var departmentBank = false;
+    var departmentTechnical = false;
     
     var timestamp: Date = Date();
 }
