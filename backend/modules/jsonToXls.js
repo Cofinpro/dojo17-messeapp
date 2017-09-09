@@ -47,10 +47,9 @@ var SaveJsonAsXls = function(jsonArr)
   });
 
   var xls = json2xls(jsonArr);
+  fs.writeFileSync('./export/data.xlsx', xls, 'binary');
 
-  fs.writeFileSync('../export/data.xlsx', xls, 'binary');
-
-  return("\backend\modules\data.xlsx");
+  return "./export/data.xlsx";
 };
 
 module.exports.JsonToXls = SaveJsonAsXls;
