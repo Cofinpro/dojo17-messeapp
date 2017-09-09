@@ -77,16 +77,23 @@ class SecondViewController: UIViewController {
     @IBAction func saveForm(_ sender: Any) {
         
         do{
+            
+            
+            
             let newContact = Contact(fileId: UUID().uuidString, id:nil, salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationDateTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: 0, comment: "", department: "", timestamp: Date())
             
             
-            try jsonFileHandler.saveData(contact: newContact);
-            
-            try jsonFileHandler.printData()
-            
+            if (isValid(contact: newContact)){
+                try jsonFileHandler.saveData(contact: newContact);
+                
+                try jsonFileHandler.printData()
+                
+                reset()
+            }
         } catch let err as NSError {
             print(err.localizedDescription)
             error = err;
+            reset()
         }
         
         
@@ -95,6 +102,26 @@ class SecondViewController: UIViewController {
     
     
     @IBAction func resetForm(_ sender: Any) {
+        
+        reset()
+    }
+    
+    
+    func isValid(contact:Contact) -> Bool{
+        if (contact.email.isEmpty){
+            return false;
+        }
+        if (contact.firstname.isEmpty){
+            return false;
+        }
+        if (contact.name.isEmpty){
+            return false;
+        }
+        
+        
+        return true;
+    }
+    func reset() {
         
         salutationTF.text = ""
         firstnameTF.text = ""
@@ -112,6 +139,10 @@ class SecondViewController: UIViewController {
         boardingSwitch.setOn(false, animated: true)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reset()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -166,15 +166,11 @@ class JsonFileHandler  {
         
         let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
         
-        for i in 0...directoryContents.count - 1{
-            
-            let url = directoryContents[i]
-            
-            let jsonString = try String(contentsOf: url)
-            
-            
-            
-            if let contact = fromJsonString(fileName: url, jsonString: jsonString){
+        for fileNameUrl in directoryContents{
+ 
+            let jsonString = try String(contentsOf: fileNameUrl)
+ 
+            if let contact = fromJsonString(fileName: fileNameUrl, jsonString: jsonString){
                 contacts.append(contact)
             }
             
