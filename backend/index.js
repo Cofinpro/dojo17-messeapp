@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData.js');
 const validator = require('./modules/validator.js');
+const exporter =  require('./modules/jsonToXls');
 
 const app = express();
+app.disable()
 app.use(bodyParser.json());
 
 
