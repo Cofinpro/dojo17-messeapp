@@ -31,10 +31,10 @@ var contactSchema = new mg.Schema({
 });
 
 var contactRepo = mg.model('Contact', contactSchema);
-contactRepo.collection.deleteMany({});
+//contactRepo.collection.deleteMany({});
 
 getAllContacts = (callback) => {
-    contactRepo.find(callback);
+    contactRepo.find(callback).lean();
 }
 
 createContact = (contact) => {
