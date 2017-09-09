@@ -40,6 +40,9 @@ class RatingTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadContacts()
+        DispatchQueue.main.async{
+            self.tableView.reloadData()
+        }
         
     }
     
