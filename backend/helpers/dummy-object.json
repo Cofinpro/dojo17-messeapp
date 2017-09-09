@@ -7,10 +7,10 @@
     "course": "",
     "graduation": "",
     "graduationDate": "",
-    
+
     "email": "",
     "telephone": "",
-    
+
     "internship": "",
     "exam": "",
     "student": "",
@@ -22,4 +22,18 @@
     "department": "",
 
     "timestamp": ""
+}
+
+{
+  "salutation":"Anrede:",
+  "firstname":"sdada",
+  "name":"sdasdsad",
+  "university":"sdasd",
+  "course":"adsadsa",
+  "graduation":"Abitur",
+  "graduationDate":"2017-09-15",
+  "email":"sdas@sdasd.de",
+  "telephone":"23243242423423432",
+  "student":"on",
+  "dhbw":"on"
 }
