@@ -7,10 +7,13 @@ const checkIncoming = require('./modules/checkIncomingData');
 const validator = require('./modules/validator');
 const exporter =  require('./modules/jsonToXls');
 //const sec = require('./modules/security-oauth');
+const mailer = require('./modules/mailer/mailer.js');
+const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(cors());
+global.config = JSON.parse(fs.readFileSync(__dirname + '/../config.json', 'utf8'));
 //sec.securityConfiguration(app);
 
 
@@ -40,11 +43,14 @@ app.post('/contact', (req, res)=> {
     if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
     if (valid) {
         repo.createContact(data).then(
-            (object) => res.send(object),
+            (object) => {
+                res.send(object);
+                mailer.sendResponse(object)
+            },
             (err) => res.send(err)
         );
     }
-    else res.send("data invalid")
+    else res.send("data invalid");
 });
 
 app.put('/contact', (req, res) => {
@@ -79,5 +85,8 @@ app.get('/downloadExport', (req, res)=> {
 
 // Generate export and send per mail
 app.get('/sendExport', (req, res) => {
-
-})
+    res.send('mail raus');
+    dataObject = {};
+    dataObject.email = global.config.exportMail;
+    mailer.sendExport(dataObject);
+});
