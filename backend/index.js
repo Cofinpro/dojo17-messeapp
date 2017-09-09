@@ -1,14 +1,18 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors')
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData');
 const validator = require('./modules/validator');
 const exporter =  require('./modules/jsonToXls');
 //const sec = require('./modules/security-oauth');
+const mailer = require('./modules/mailer/mailer.js');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
+global.config = JSON.parse(fs.readFileSync(__dirname + '/../config.json', 'utf8'));
 //sec.securityConfiguration(app);
 
 
@@ -38,20 +42,23 @@ app.post('/contact', (req, res)=> {
     if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
     if (valid) {
         repo.createContact(data).then(
-            (object) => res.send(object),
+            (object) => {
+                res.send(object);
+            },
             (err) => res.send(err)
         );
     }
-    else res.send("data invalid")
+    else res.send("data invalid");
 });
 
-app.patch('/contact', (req, res) => {
+app.put('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
 
     if (!checkIncoming.isValid(data.object) || !validator.validateData(data.object)) valid = false;
     if (valid) {
         repo.updateContact(data.id, data.object, (err, post) => {
+            mailer.sendResponse(post);
             res.send(post);
         });
     }
@@ -62,9 +69,7 @@ app.patch('/contact', (req, res) => {
 // params:
 app.get('/downloadExport', (req, res)=> {
     repo.getAllContacts((err, contactArray) => {
-        console.log(contactArray)
         path = exporter.JsonToXls(contactArray);
-
 
         file = fs.readFileSync(path, 'binary');
         stat = fs.statSync(path);
@@ -79,5 +84,8 @@ app.get('/downloadExport', (req, res)=> {
 
 // Generate export and send per mail
 app.get('/sendExport', (req, res) => {
-
-})
+    res.send('mail raus');
+    dataObject = {};
+    dataObject.email = global.config.exportMail;
+    mailer.sendExport(dataObject);
+});

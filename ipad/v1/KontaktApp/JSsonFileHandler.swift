@@ -14,6 +14,13 @@ class JsonFileHandler  {
     // Speicherort für Kontaktdaten
     var storageFile = "Daten"
     
+    let dateFormatter = DateFormatter()
+    
+    init(_: <#parameters#>) {
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+    }
+    
     
     func saveData(contact: Contact){
         
@@ -38,6 +45,9 @@ class JsonFileHandler  {
         
         let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
         
+        
+        
+        
         let fileURL = DocumentDirURL.appendingPathComponent(storageFile).appendingPathExtension("txt")
         
         var readString = ""
@@ -53,8 +63,6 @@ class JsonFileHandler  {
     
     func toProps(contact: Contact) ->[String : Any]{
         
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         
         return [
             "salutation" : contact.salutation,
@@ -81,28 +89,25 @@ class JsonFileHandler  {
     }
     
     func fromProps(prop: [String : Any]) -> Contact?{
-        let newContact = Contact(
-            salutation: (String)prop["salutation"],
-            firstname: prop["firstname"],
-            name: prop["name"],
-            university: prop["university"],
-            course: prop["course"],
-            graduation: prop["graduation"],
-            graduationDate: prop["graduationDate"],
-            email: prop["email"],
-            telephone: prop["telephone"],
-            internship: prop["interest"]["internship"],
-            exam: prop["interest"]["exam"],
-            student: prop["interest"]["student"],
-            dhbw: prop["interest"]["dhbw"],
-            boarding: prop["interest"]["boarding"],
-            rating: prop["rating"],
-            comment: prop["comment"],
-            department: prop["department"],
-            timestamp: prop["timestamp"])
-        
-        return newContact
-        
+        return Contact(
+            salutation: prop["salutation"] as? String ?? "",
+            firstname: prop["firstname"] as? String ?? "",
+            name: prop["name"] as? String ?? "",
+            university: prop["university"] as? String ?? "",
+            course: prop["course"] as? String ?? "",
+            graduation: prop["graduation"] as? String ?? "",
+            graduationDate: prop["graduationDate"] as? String ?? "",
+            email: prop["email"] as? String ?? "",
+            telephone: prop["telephone"] as? String ?? "",
+            internship: prop["internship"] as? BooleanLiteralType ?? false,
+            exam: prop["exam"] as? BooleanLiteralType ?? false,
+            student: prop["student"] as? BooleanLiteralType ?? false,
+            dhbw: prop["dhbw"] as? BooleanLiteralType ?? false,
+            boarding: prop["boarding"] as? BooleanLiteralType ?? false,
+            rating: prop["rating"] as? Int ?? 0,
+            comment: prop["comment"] as? String ?? "",
+            department: prop["department"] as? String ?? "",
+            timestamp: dateFormatter.date(from: prop["timestamp"]as? String ?? "")!)
     }
     
     /*
