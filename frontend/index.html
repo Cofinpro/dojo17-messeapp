@@ -34,133 +34,128 @@
         </div>
     </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="row rowmargin">
-                <div class="col-12">
-                    <div class="form-group">
-                        <select class="form-control form-control-lg form-control-fixed-height" id="sel1">
+    <form action="http://10.59.1.104:3000/contact" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="row rowmargin">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <select class="form-control form-control-lg form-control-fixed-height" name="salutation" id="sel1">
                                     <option>Anrede:</option>
-                                    <option>Frau</option>
-                                    <option>Herr</option>
+                                    <option value="Frau">Frau</option>
+                                    <option value="Herr">Herr</option>
                                 </select>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
+            <div class="row">
 
-            <div class="input-group inputtextcolor">
-                <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                <input type="text" class="form-control form-control-lg" placeholder="Vorname" aria-label="Vorname" aria-describedby="sizing-addon1">
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-group input-group-lg inputtextcolor">
-                <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                <input type="text" class="form-control" placeholder="Nachname" aria-label="Nachname" aria-describedby="sizing-addon1">
-            </div> <br><br>
-        </div>
-
-        <div class="row">
-            <div class="col-6 colwithoutpadding">
-
-                <div class="input-group input-group-lg inputtextcolor">
-                    <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                    <input type="text" class="form-control" placeholder="(Hoch-)Schule" aria-label="Hochschule" aria-describedby="sizing-addon1">
-                </div>
-            </div>
-
-
-            <div class="col-6 colwithoutpadding">
                 <div class="input-group inputtextcolor">
-                    <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                    <input type="text" class="form-control form-control-lg" placeholder="Studiengang" aria-label="Studiengang" aria-describedby="sizing-addon1">
+                    <input type="text" class="form-control form-control-lg" placeholder="Vorname" aria-label="Vorname" name="firstname" aria-describedby="sizing-addon1">
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-6 colwithoutpadding">
-                <div class="form-group">
-                    <select class="form-control form-control-lg form-control-fixed-height" id="sel1">
-                                                <option>Abschluss:</option>
-                                                <option>Abitur</option>
-                                                <option>Bachelor</option>
-                                                <option>Diplom</option>
-                                                <option>Master</option>
-                                                <option>Sonstige</option>
-                                            </select>
-                </div>
-            </div>
-            <div class="col-6 colwithoutpadding">
+            <div class="row">
                 <div class="input-group input-group-lg inputtextcolor">
-                    <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                    <input type="date" class="form-control" placeholder="Datum" aria-label="Datum" aria-describedby="sizing-addon1">
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="row">
-
-            <div class="input-group input-group-lg inputtextcolor">
-                <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                <input type="email" class="form-control" placeholder="E-Mail" aria-label="E-Mail" aria-describedby="sizing-addon1">
-            </div>
-        </div>
-
-        <div class="row">
-
-            <div class="input-group input-group-lg inputtextcolor">
-                <!-- <span class="input-group-addon" id="sizing-addon1">@</span> -->
-                <input type="text" class="form-control" placeholder="Telefon" aria-label="Telefon" aria-describedby="sizing-addon1">
+                    <input type="text" class="form-control" placeholder="Nachname" aria-label="Nachname" name="name" aria-describedby="sizing-addon1">
+                </div> <br><br>
             </div>
 
             <div class="row">
-                <div class="col-12">
-                    <div class="checkbox checkboxmargin">
-                        <label><input type="checkbox" value="">Praktikum</label>
+                <div class="col-6 colwithoutpadding">
+
+                    <div class="input-group input-group-lg inputtextcolor">
+                        <input type="text" name="university" class="form-control" placeholder="(Hoch-)Schule" aria-label="Hochschule" aria-describedby="sizing-addon1">
                     </div>
                 </div>
-                <div class="col-12">
-                    <div class="checkbox checkboxmargin">
-                        <label><input type="checkbox" value="">Werkstudent</label>
+
+
+                <div class="col-6 colwithoutpadding">
+                    <div class="input-group inputtextcolor">
+                        <input type="text" name="course" class="form-control form-control-lg" placeholder="Studiengang" aria-label="Studiengang"
+                            aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 colwithoutpadding">
+                    <div class="form-group">
+                        <select class="form-control form-control-lg form-control-fixed-height" name="graduation" id="sel1">
+                                                <option>Abschluss:</option>
+                                                <option value="Abitur">Abitur</option>
+                                                <option value="Bachelor">Bachelor</option>
+                                                <option value="Diplom">Diplom</option>
+                                                <option value="Master">Master</option>
+                                                <option value="Sonstige">Sonstige</option>
+                                            </select>
+                    </div>
+                </div>
+                <div class="col-6 colwithoutpadding">
+                    <div class="input-group input-group-lg inputtextcolor">
+                        <input type="date" class="form-control" name="graduationDate" placeholder="Datum" aria-label="Datum" aria-describedby="sizing-addon1">
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+
+                <div class="input-group input-group-lg inputtextcolor">
+                    <input type="email" class="form-control" name="email" placeholder="E-Mail" aria-label="E-Mail" aria-describedby="sizing-addon1">
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="input-group input-group-lg inputtextcolor">
+                    <input type="text" class="form-control" name="telephone" placeholder="Telefon" aria-label="Telefon" aria-describedby="sizing-addon1">
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="checkbox checkboxmargin">
+                            <label><input type="checkbox" name="Internship">Praktikum</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="checkbox checkboxmargin">
+                            <label><input type="checkbox" name="exam">Werkstudent</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="checkbox checkboxmargin">
+                            <label><input type="checkbox" name="student">Abschlussarbeit</label>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="checkbox checkboxmargin">
+                            <label><input type="checkbox" name="dhbw">DHBW</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="checkbox checkboxmargin">
+                            <label><input type="checkbox" name="boarding">Direkteinstieg</label>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-12">
-                    <div class="checkbox checkboxmargin">
-                        <label><input type="checkbox" value="">Abschlussarbeit</label>
-                    </div>
+                <div class="col-6">
+                    <button type="submit" class="btn buttonorange float-left">Abschicken</button>
                 </div>
-                <div class="col-12">
-                    <div class="checkbox checkboxmargin">
-                        <label><input type="checkbox" value="">DHBW</label>
-                    </div>
+                <div class="col-6">
+                    <button type="reset" class="btn buttonorange float-right">Zurücksetzen</button>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="checkbox checkboxmargin">
-                        <label><input type="checkbox" value="">Direkteinstieg</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-6">
-                <button type="button" class="btn buttonorange float-left">Abschicken</button>
-            </div>
-            <div class="col-6">
-                <button type="button" class="btn buttonorange float-right">Zurücksetzen</button>
-            </div>
-        </div>
-
+    </form>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
