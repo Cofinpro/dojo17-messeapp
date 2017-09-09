@@ -1,0 +1,46 @@
+.colwithoutpadding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.buttonorange{
+    color: black;
+    background-color: rgb(238, 127, 0);
+    border-color: rgb(238, 127, 0);
+    margin-top: 10px;
+
+}
+
+.buttonorange:hover{
+    cursor: pointer;
+    background-color: rgb(238, 107, 0);
+}
+
+
+.inputtextcolor{
+    color: rgb(238, 127, 0);
+}
+
+.row{
+margin-top: 10px;
+
+}
+
+.form-control-fixed-height {
+    height: 50px!important;
+}
+
+.logo{
+    max-width: 100%;
+}
+
+.navbarnopadding{
+
+    padding-top: 0px;
+    font-size: 1.25rem;
+}
+
+.rowmargin{
+    
+        margin-top: 20px;
+    }

@@ -11,6 +11,29 @@ import UIKit
 class RatingTableViewController: UITableViewController {
     
     var ratings = [Rating]()
+    
+    @IBAction func showApplicantInfo(_ sender: AnyObject) {
+        print("Info Button pressed")
+        
+        let buttonPosition = sender.convert(CGPoint(), to:tableView)
+        let indexPath = tableView.indexPathForRow(at:buttonPosition)
+        let cell = tableView.cellForRow(at: indexPath!) as! RatingTableViewCell
+        print(cell.firstName.text!)
+        
+        // create the alert
+        let title: String = "Beschreibung von " + cell.firstName.text!
+        let beschreibung: String = cell.firstName.text! + "\n" + cell.name.text! + "\n"
+        let alert = UIAlertController(title: title, message: beschreibung, preferredStyle: UIAlertControllerStyle.alert)
+        
+        // add an action (button)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        
+        // show the alert
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +71,7 @@ class RatingTableViewController: UITableViewController {
         cell.name.text = rating.name
         cell.rating = rating.rating
         cell.comment = rating.comment
+        cell.infoButton.tag = indexPath.section
 
         return cell
     }

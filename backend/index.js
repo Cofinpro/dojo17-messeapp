@@ -1,11 +1,15 @@
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
-const checkIncoming = require('./modules/checkIncomingData.js');
-const validator = require('./modules/validator.js');
+const checkIncoming = require('./modules/checkIncomingData');
+const validator = require('./modules/validator');
+const exporter =  require('./modules/jsonToXls');
+//const sec = require('./modules/security-oauth');
 
 const app = express();
 app.use(bodyParser.json());
+//sec.securityConfiguration(app);
 
 
 const server = app.listen(3000, function () {
@@ -54,8 +58,25 @@ app.patch('/contact', (req, res) => {
     else res.send("data invalid")
 });
 
-// Export data
+// Export data and provide as XLS as download
 // params:
-app.post('/export', (req, res)=> {
-
+app.get('/downloadExport', (req, res)=> {
+    repo.getAllContacts((err, contactArray) => {
+        console.log(contactArray)
+        path = exporter.JsonToXls(contactArray);
+        
+        file = fs.readFileSync(path, 'binary');
+        stat = fs.statSync(path);
+        
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.setHeader('Content-Disposition', 'attachment; filename=contacts.xlsx');
+        res.write(file, 'binary');
+        res.end();
+    });
 });
+
+// Generate export and send per mail
+app.get('/sendExport', (req, res) => {
+
+})
