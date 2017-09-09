@@ -80,12 +80,17 @@ class SecondViewController: UIViewController {
             
             
             
-            let newContact = Contact(fileId: UUID().uuidString, id:nil, salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationDateTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: 0, comment: "", department: "", timestamp: Date())
+            let newContact = Contact(fileId: UUID().uuidString, id:nil, salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationDateTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: 0, comment: "", departmentCentral: false, departmentBank: false, departmentTechnical: false, timestamp: Date())
             
+ 
             
             if (isValid(contact: newContact)){
                 try jsonFileHandler.saveData(contact: newContact);
                 
+                try jsonFileHandler.makePostCall(contact: newContact)
+                
+                
+            
                 try jsonFileHandler.printData()
                 
                 reset()

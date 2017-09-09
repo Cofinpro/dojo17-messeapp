@@ -68,16 +68,20 @@ app.put('/contact', (req, res) => {
 // params:
 app.get('/downloadExport', (req, res)=> {
     repo.getAllContacts((err, contactArray) => {
-        path = exporter.JsonToXls(contactArray);
+        if (contactArray.length === 0)
+            res.send("no contacts available")
+        else {
+            path = exporter.JsonToXls(contactArray);
 
-        file = fs.readFileSync(path, 'binary');
-        stat = fs.statSync(path);
+            file = fs.readFileSync(path, 'binary');
+            stat = fs.statSync(path);
 
-        res.setHeader('Content-Length', stat.size);
-        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-        res.setHeader('Content-Disposition', 'attachment; filename=contacts.xlsx');
-        res.write(file, 'binary');
-        res.end();
+            res.setHeader('Content-Length', stat.size);
+            res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+            res.setHeader('Content-Disposition', 'attachment; filename=contacts.xlsx');
+            res.write(file, 'binary');
+            res.end();
+        }
     });
 });
 
