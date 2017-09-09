@@ -26,3 +26,4 @@ const renderTemplate = function() {
     });
 }
 
+module.exports.sendResponse = renderTemplate;

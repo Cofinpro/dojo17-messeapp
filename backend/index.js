@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData.js');
 const validator = require('./modules/validator.js');
+const mailer = require('./modules/mailer/mailer.js');
 
 const app = express();
 app.use(bodyParser.json());
@@ -14,6 +15,7 @@ const server = app.listen(3000, function () {
 
 app.get('/', (req, res)=> {
     res.send('What can i do with the Gartenschuh');
+    mailer.sendResponse();
 });
 
 // Get all entries
@@ -35,7 +37,7 @@ app.post('/contact', (req, res)=> {
     if (valid) {
         repo.createContact(data).then(
             (object) => res.send(object),
-            (err) => res.send(err)
+            (err) => res.send(err),
         );
     }
     else res.send("data invalid")
@@ -54,8 +56,13 @@ app.patch('/contact', (req, res) => {
     else res.send("data invalid")
 });
 
-// Export data
+// Export data and provide as XLS as download
 // params:
-app.post('/export', (req, res)=> {
-    
+app.get('/downloadExport', (req, res)=> {
+
+});
+
+// Generate export and send per mail
+app.get('/sendExport', (req, res) => {
+
 });
