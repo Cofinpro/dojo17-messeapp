@@ -7,13 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85080C711F643E6900A349D3 /* cofinpro2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85080C701F643E6900A349D3 /* cofinpro2.gif */; };
+		853E0A951F64377D00259B2B /* cofinpro.png in Resources */ = {isa = PBXBuildFile; fileRef = 853E0A941F64377D00259B2B /* cofinpro.png */; };
+		856789B61F64251000FA6698 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856789B31F64251000FA6698 /* DataViewController.swift */; };
+		856789B71F64251000FA6698 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856789B41F64251000FA6698 /* ModelController.swift */; };
+		856789B81F64251000FA6698 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856789B51F64251000FA6698 /* RootViewController.swift */; };
+		856789C51F6429E600FA6698 /* images in Resources */ = {isa = PBXBuildFile; fileRef = 856789C41F6429E600FA6698 /* images */; };
 		85D8A8921F635C09008154A1 /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */; };
 		85DDF5411F62E80D00B88C32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5401F62E80D00B88C32 /* AppDelegate.swift */; };
 		85DDF5451F62E80D00B88C32 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5441F62E80D00B88C32 /* SecondViewController.swift */; };
 		85DDF5481F62E80D00B88C32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5461F62E80D00B88C32 /* Main.storyboard */; };
 		85DDF54A1F62E80D00B88C32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5491F62E80D00B88C32 /* Assets.xcassets */; };
 		85DDF54D1F62E80D00B88C32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF54B1F62E80D00B88C32 /* LaunchScreen.storyboard */; };
-		85DDF5571F62F7DD00B88C32 /* hari&dani.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */; };
 		85DDF5591F6300AD00B88C32 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DDF5581F6300AD00B88C32 /* Contact.swift */; };
 		85F1A0CB1F63577400EB50D3 /* RatingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */; };
 		85F1A0CF1F635AAB00EB50D3 /* CosmosDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */; };
@@ -21,6 +26,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		85080C701F643E6900A349D3 /* cofinpro2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cofinpro2.gif; sourceTree = "<group>"; };
+		853E0A941F64377D00259B2B /* cofinpro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cofinpro.png; sourceTree = "<group>"; };
+		856789B31F64251000FA6698 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
+		856789B41F64251000FA6698 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
+		856789B51F64251000FA6698 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		856789C01F6428B200FA6698 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		856789C11F6428B200FA6698 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		856789C41F6429E600FA6698 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = KontaktApp4/images; sourceTree = "<group>"; };
 		85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		85DDF53D1F62E80D00B88C32 /* KontaktApp4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KontaktApp4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85DDF5401F62E80D00B88C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +42,6 @@
 		85DDF5491F62E80D00B88C32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85DDF54C1F62E80D00B88C32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85DDF54E1F62E80D00B88C32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "hari&dani.jpg"; sourceTree = "<group>"; };
 		85DDF5581F6300AD00B88C32 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		85F1A0CA1F63577400EB50D3 /* RatingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewController.swift; sourceTree = "<group>"; };
 		85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CosmosDistrib.swift; sourceTree = "<group>"; };
@@ -47,9 +59,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		856789BB1F64262F00FA6698 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				85080C701F643E6900A349D3 /* cofinpro2.gif */,
+				853E0A941F64377D00259B2B /* cofinpro.png */,
+				856789C01F6428B200FA6698 /* 1.jpg */,
+				856789C11F6428B200FA6698 /* 2.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
 		85DDF5341F62E80D00B88C32 = {
 			isa = PBXGroup;
 			children = (
+				856789C41F6429E600FA6698 /* images */,
 				85DDF53F1F62E80D00B88C32 /* KontaktApp4 */,
 				85DDF53E1F62E80D00B88C32 /* Products */,
 			);
@@ -66,6 +90,10 @@
 		85DDF53F1F62E80D00B88C32 /* KontaktApp4 */ = {
 			isa = PBXGroup;
 			children = (
+				856789BB1F64262F00FA6698 /* images */,
+				856789B31F64251000FA6698 /* DataViewController.swift */,
+				856789B41F64251000FA6698 /* ModelController.swift */,
+				856789B51F64251000FA6698 /* RootViewController.swift */,
 				A4B469861F63D5F20070E0E0 /* JSsonFileHandler.swift */,
 				85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */,
 				85F1A0CE1F635AAB00EB50D3 /* CosmosDistrib.swift */,
@@ -73,7 +101,6 @@
 				85DDF5401F62E80D00B88C32 /* AppDelegate.swift */,
 				85DDF5441F62E80D00B88C32 /* SecondViewController.swift */,
 				85DDF5461F62E80D00B88C32 /* Main.storyboard */,
-				85DDF5561F62F7DD00B88C32 /* hari&dani.jpg */,
 				85DDF5491F62E80D00B88C32 /* Assets.xcassets */,
 				85DDF54B1F62E80D00B88C32 /* LaunchScreen.storyboard */,
 				85DDF54E1F62E80D00B88C32 /* Info.plist */,
@@ -142,9 +169,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856789C51F6429E600FA6698 /* images in Resources */,
+				85080C711F643E6900A349D3 /* cofinpro2.gif in Resources */,
 				85DDF54D1F62E80D00B88C32 /* LaunchScreen.storyboard in Resources */,
-				85DDF5571F62F7DD00B88C32 /* hari&dani.jpg in Resources */,
 				85DDF54A1F62E80D00B88C32 /* Assets.xcassets in Resources */,
+				853E0A951F64377D00259B2B /* cofinpro.png in Resources */,
 				85DDF5481F62E80D00B88C32 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,6 +186,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				85DDF5451F62E80D00B88C32 /* SecondViewController.swift in Sources */,
+				856789B71F64251000FA6698 /* ModelController.swift in Sources */,
+				856789B61F64251000FA6698 /* DataViewController.swift in Sources */,
+				856789B81F64251000FA6698 /* RootViewController.swift in Sources */,
 				85DDF5411F62E80D00B88C32 /* AppDelegate.swift in Sources */,
 				85DDF5591F6300AD00B88C32 /* Contact.swift in Sources */,
 				85F1A0CF1F635AAB00EB50D3 /* CosmosDistrib.swift in Sources */,

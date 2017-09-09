@@ -37,14 +37,10 @@ class RatingTableViewController: UITableViewController {
         
     }
     
-    
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadContacts()
-        DispatchQueue.main.async{
-            self.tableView.reloadData()
-        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +76,13 @@ class RatingTableViewController: UITableViewController {
         cell.comment.text = contact.comment
         cell.infoButton.tag = indexPath.section
         
+        cell.rating.didFinishTouchingCosmos = saveRating
+        
         return cell
+    }
+    
+    func saveRating(rating: Double){
+        print(rating)
     }
     
     

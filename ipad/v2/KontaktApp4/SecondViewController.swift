@@ -11,7 +11,11 @@ import UIKit
 class SecondViewController: UIViewController {
     
     
-    // ### Textfields
+    // ### Buttons ###
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    // ### Textfields ###
     
     // Salutation of applicant
     var salutation: String = ""
@@ -105,7 +109,6 @@ class SecondViewController: UIViewController {
     }
     
     
-    
     @IBAction func resetForm(_ sender: Any) {
         
         reset()
@@ -151,7 +154,10 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        saveButton.layer.cornerRadius = 20
+        resetButton.layer.cornerRadius = 20
+
+
     }
     
     override func didReceiveMemoryWarning() {
