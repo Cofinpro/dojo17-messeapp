@@ -11,7 +11,11 @@ import UIKit
 class SecondViewController: UIViewController {
     
     
-    // ### Textfields
+    // ### Buttons ###
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var resetButton: UIButton!
+    
+    // ### Textfields ###
     
     // Salutation of applicant
     var salutation: String = ""
@@ -80,12 +84,17 @@ class SecondViewController: UIViewController {
             
             
             
-            let newContact = Contact(fileId: UUID().uuidString, id:nil, salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationDateTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: 0, comment: "", department: "", timestamp: Date())
+            let newContact = Contact(fileId: UUID().uuidString, id:nil, salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationDateTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: 0, comment: "", departmentCentral: false, departmentBank: false, departmentTechnical: false, timestamp: Date())
             
+ 
             
             if (isValid(contact: newContact)){
                 try jsonFileHandler.saveData(contact: newContact);
                 
+                try jsonFileHandler.makePostCall(contact: newContact)
+                
+                
+            
                 try jsonFileHandler.printData()
                 
                 reset()
@@ -98,7 +107,6 @@ class SecondViewController: UIViewController {
         
         
     }
-    
     
     
     @IBAction func resetForm(_ sender: Any) {
@@ -146,7 +154,10 @@ class SecondViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        saveButton.layer.cornerRadius = 20
+        resetButton.layer.cornerRadius = 20
+
+
     }
     
     override func didReceiveMemoryWarning() {

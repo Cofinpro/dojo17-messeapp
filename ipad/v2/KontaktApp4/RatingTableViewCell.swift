@@ -27,7 +27,6 @@ class RatingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var infoButton: UIButton!
 
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

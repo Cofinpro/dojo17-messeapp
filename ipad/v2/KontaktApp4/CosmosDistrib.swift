@@ -1136,7 +1136,7 @@ Shows: ★★★★☆ (132)
   /// Detecting event when the user lifts their finger.
   open override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     super.touchesEnded(touches, with: event)
-    
+
     didFinishTouchingCosmos?(rating)
   }
 
