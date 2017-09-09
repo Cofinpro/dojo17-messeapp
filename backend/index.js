@@ -62,9 +62,7 @@ app.patch('/contact', (req, res) => {
 // params:
 app.get('/downloadExport', (req, res)=> {
     repo.getAllContacts((err, contactArray) => {
-        console.log(contactArray)
         path = exporter.JsonToXls(contactArray);
-
 
         file = fs.readFileSync(path, 'binary');
         stat = fs.statSync(path);

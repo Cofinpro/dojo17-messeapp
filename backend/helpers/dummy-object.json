@@ -19,7 +19,9 @@
 
     "rating": "",
     "comment": "",
-    "department": "",
+    "departmentTechnical": "",
+    "departmentBank": "",
+    "departmentCentral": "",
 
     "timestamp": ""
 }
