@@ -45,7 +45,7 @@ app.post('/contact', (req, res)=> {
     else res.send("data invalid")
 });
 
-app.patch('/contact', (req, res) => {
+app.put('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
 
