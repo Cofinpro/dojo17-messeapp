@@ -38,31 +38,25 @@ app.get('/contact', (req, res)=> {
 app.post('/contact', (req, res)=> {
     const data = req.body;
     let valid = true;
-
-    if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
-    if (valid) {
-        repo.createContact(data).then(
-            (object) => {
-                res.send(object);
-            },
-            (err) => res.send(err)
-        );
-    }
-    else res.send("data invalid");
+    
+    repo.createContact(data).then(
+        (object) => {
+            res.send(object);
+        },
+        (err) => res.send(err)
+    );
 });
 
 app.put('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
 
-    if (!checkIncoming.isValid(data.object) || !validator.validateData(data.object)) valid = false;
-    if (valid) {
-        repo.updateContact(data.id, data.object, (err, post) => {
-            mailer.sendResponse(post);
-            res.send(post);
-        });
-    }
-    else res.send("data invalid")
+    repo.updateContact(data.id, data.object, (err, post) => {
+        if (err) res.send(err)
+
+        mailer.sendResponse(post);
+        res.send(post);
+    });
 });
 
 // Export data and provide as XLS as download
