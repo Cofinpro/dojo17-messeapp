@@ -28,18 +28,18 @@ const renderTemplate = function(dataObject, subject, templateName) {
 
     template.render(dataObject, (err, result)=> {
         if (err) throw err;
-        createMailRequestAndSend(dataObject.email, subject, result.html, exportData);
+        createMailRequestAndSend(dataObject, subject, result.html, exportData);
     });
 }
 
-const createMailRequestAndSend = function(receiver, subject, content, exportData) {
+const createMailRequestAndSend = function(dataObject, subject, content, exportData) {
     let mailOptions = {
         from: global.config.fromMail,
-        to: receiver,
+        to: dataObject.email,
         subject: subject,
         html: content
     }
-    if (exportData) mailOptions.attachments = [{ path: './export/data.xlsx' }];
+    if (exportData) mailOptions.attachments = [{ path: dataObject.path }];
     
     mail(mailOptions, ()=> { console.log('done'); });
 }
