@@ -1,6 +1,6 @@
 {
-    "exportMail": "jul.ricovino@gmail.com",
-    "fromMail": "POST <chefpost@gmx.de.de>",
-    "subjectResponse": "Kennenlernen auf dem Absolventenkongress Frankfurt",
+    "exportMail": "#_Karriere <karriere@cofinpro.de>",
+    "fromMail": "#_Karriere <karriere@cofinpro.de>",
+    "subjectResponse": "Kennenlernen der Cofinpro",
     "subjectExport": "Messeinteressenten Excel Export"
 }
