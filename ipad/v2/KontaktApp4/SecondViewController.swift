@@ -37,7 +37,7 @@ class SecondViewController: UIViewController {
     var graduation: String = ""
     @IBOutlet weak var graduationTF: UITextField!
     
-    // Graduation date 
+    // Graduation date
     var graduationDate: String = ""
     @IBOutlet weak var graduationDateTF: UITextField!
     
@@ -45,7 +45,7 @@ class SecondViewController: UIViewController {
     var email: String = ""
     @IBOutlet weak var emailTF: UITextField!
     
-    // Telephone number of applicant 
+    // Telephone number of applicant
     var telephone: String = ""
     @IBOutlet weak var telephoneTF: UITextField!
     
@@ -69,24 +69,31 @@ class SecondViewController: UIViewController {
     // Boarding
     var boarding: Bool = false
     @IBOutlet weak var boardingSwitch: UISwitch!
-
+    
+    let jsonFileHandler: JsonFileHandler = JsonFileHandler()
+    
+    var error : NSError? = nil
     
     @IBAction func saveForm(_ sender: Any) {
         
-        print("Form was saved")
-        saveData(storageFile: "Daten1", daten: "Daniel")
-        saveData(storageFile: "Daten2", daten: "Harald")
-        saveData(storageFile: "Daten3", daten: "Michael")
+        do{
+            let newContact = Contact(fileId: UUID().uuidString, id:nil, salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationDateTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: 0, comment: "", department: "", timestamp: Date())
+            
+            
+            try jsonFileHandler.saveData(contact: newContact);
+            
+            try jsonFileHandler.printData()
+            
+        } catch let err as NSError {
+            print(err.localizedDescription)
+            error = err;
+        }
         
-        listFilesOnDevice()
-        readData()
-        
-        // let newContact = Contact(salutation: salutationTF.text!, firstname: firstnameTF.text!, name: nameTF.text!, university: universityTF.text!, course: courseTF.text!, graduation: graduationTF.text!, graduationDate: graduationTF.text!, email: emailTF.text!, telephone: telephoneTF.text!, internship: internshipSwitch.isOn, exam: examSwitch.isOn, student: studentSwitch.isOn, dhbw: dhbwSwitch.isOn, boarding: boardingSwitch.isOn, rating: <#T##Int#>, comment: <#T##String#>, department: <#T##String#>, timestamp: <#T##Date#>)
         
     }
     
     
-
+    
     @IBAction func resetForm(_ sender: Any) {
         
         salutationTF.text = ""
@@ -105,69 +112,17 @@ class SecondViewController: UIViewController {
         boardingSwitch.setOn(false, animated: true)
     }
     
-    func listFilesOnDevice() {
-        
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        do {
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            print(directoryContents)
-            
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-        
-    }
-    
-    func readData(){
-        
-        let documentsUrl =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        do {
-            var readString: String = ""
-            let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
-            
-            for i in 0...directoryContents.count - 1{
-            readString = try String(contentsOf: directoryContents[i])
-            print("Gespeicherte Daten: \(readString)")
-            }
-
-            
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
-    
-        
-    }
-    
-    func saveData(storageFile: String, daten: String){
-        
-        let DocumentDirURL = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
-        
-        let fileURL = DocumentDirURL.appendingPathComponent(storageFile).appendingPathExtension("txt")
-        
-        //print("Dateipfad: \(fileURL.path)")
-        
-        do {
-            // In Datei schreiben
-            try daten.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-        } catch let error as NSError {
-            print("Failed writing to URL: \(fileURL), Error: " + error.localizedDescription)
-        }
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 

@@ -9,6 +9,8 @@
 import Foundation
 
 struct Contact {
+    var fileId: String;
+    var id: String?;
     var salutation = "";
     var firstname = "";
     var name = "";
