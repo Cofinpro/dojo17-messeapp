@@ -41,8 +41,6 @@ app.post('/contact', (req, res)=> {
     else res.send("data invalid")
 });
 
-// Update existing entry
-// params: id, [helpers/dummy-object.json]
 app.patch('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
@@ -56,8 +54,13 @@ app.patch('/contact', (req, res) => {
     else res.send("data invalid")
 });
 
-// Export data
+// Export data and provide as XLS as download
 // params:
-app.post('/export', (req, res)=> {
+app.get('/downloadExport', (req, res)=> {
 
 });
+
+// Generate export and send per mail
+app.get('/sendExport', (req, res) => {
+
+})
