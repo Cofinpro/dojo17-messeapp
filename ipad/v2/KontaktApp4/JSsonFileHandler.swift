@@ -9,12 +9,26 @@
 import Foundation
 
 
+extension Formatter {
+    static let iso8601: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.calendar = Calendar(identifier: .iso8601)
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.timeZone = TimeZone(secondsFromGMT: 0)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSXXXXX"
+        return formatter
+    }()
+}
+
+
+
 class JsonFileHandler  {
     
     // Speicherort für Kontaktdaten
     var storageFile = "Daten"
     
     let dateFormatter = DateFormatter()
+    
     
     init() {
         
@@ -46,7 +60,7 @@ class JsonFileHandler  {
             "university" : contact.university,
             "course" : contact.course,
             "graduation" : contact.graduation,
-            "graduation_date" : contact.graduationDate,
+            "graduationDate" : contact.graduationDate,
             "email" : contact.email,
             "telephone" : contact.telephone,
             
@@ -57,13 +71,29 @@ class JsonFileHandler  {
             "boarding" : contact.boarding,
             
             "rating" : contact.rating,
-            "department" : contact.department,
-            "comment" : contact.comment,
+             "comment" : contact.comment,
             
-            "timestamp":dateFormatter.string(from: contact.timestamp)];
+             "departmentCentral" : contact.departmentCentral,
+             "departmentBank" : contact.departmentBank,
+             "departmentTechnical" : contact.departmentTechnical,
+
+            
+            "timestamp":Formatter.iso8601.string(from: contact.timestamp)];
     }
     
     func fromProps(prop: [String : Any], theFileId: String) -> Contact{
+        
+        let dateString = prop["timestamp"]as? String ?? ""
+        let date = Formatter.iso8601.date(from: "2017-09-09T15:01:53.000Z");
+  
+        var timestamp1 = Formatter.iso8601.date(from: dateString)
+        
+        if (timestamp1 == nil){
+            timestamp1 = dateFormatter.date(from: dateString)
+        }
+        
+        
+        
         return Contact(
             fileId: theFileId,
             id:prop["_id"] as? String ?? nil,
@@ -83,8 +113,13 @@ class JsonFileHandler  {
             boarding: prop["boarding"] as? BooleanLiteralType ?? false,
             rating: prop["rating"] as? Int ?? 0,
             comment: prop["comment"] as? String ?? "",
-            department: prop["department"] as? String ?? "",
-            timestamp: dateFormatter.date(from: prop["timestamp"]as? String ?? "")!)
+            departmentCentral: prop["departmentCentral"] as? BooleanLiteralType ?? false,
+            departmentBank: prop["departmentBank"] as? BooleanLiteralType ?? false,
+            departmentTechnical: prop["departmentTechnical"] as? BooleanLiteralType ?? false,
+            timestamp: timestamp1!)
+        
+        
+
     }
     
     
@@ -167,15 +202,17 @@ class JsonFileHandler  {
         let directoryContents = try FileManager.default.contentsOfDirectory(at: documentsUrl, includingPropertiesForKeys: nil, options: [])
         
         for fileNameUrl in directoryContents{
- 
+            
             let jsonString = try String(contentsOf: fileNameUrl)
- 
+            
             if let contact = fromJsonString(fileName: fileNameUrl, jsonString: jsonString){
                 contacts.append(contact)
             }
             
             
         }
+        
+        contacts = contacts.sorted(by: { $0.timestamp > $1.timestamp })
         
         
         
@@ -192,55 +229,82 @@ class JsonFileHandler  {
         
     }
     
-    func makeGetCall() {
-        // Set up the URL request
-        let todoEndpoint: String = "https://jsonplaceholder.typicode.com/todos/1"
-        guard let url = URL(string: todoEndpoint) else {
-            print("Error: cannot create URL")
-            return
+    enum ContactPostError: Error {
+        case invalidURL
+        case callError(url: String)
+        case noData
+    }
+    
+    
+    func makePostCall(contact: Contact) throws {
+        let contactsEndpoint: String = "http://10.59.1.104:3000/contact/"
+        guard let contactsURL = URL(string: contactsEndpoint) else {
+            throw ContactPostError.invalidURL
+            
         }
-        let urlRequest = URLRequest(url: url)
+        var contactsUrlRequest = URLRequest(url: contactsURL)
+        contactsUrlRequest.httpMethod = "POST"
+        contactsUrlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        contactsUrlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
+
+        let contactProps = toProps(contact: contact)
+        let resultContact: Data
         
-        // set up the session
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
+        resultContact = try JSONSerialization.data(withJSONObject: contactProps, options: [])
         
-        // make the request
-        let task = session.dataTask(with: urlRequest) {
+        print(try JSONSerialization.data(withJSONObject: contactProps,
+                                                  options: .prettyPrinted))
+      
+        
+        contactsUrlRequest.httpBody = resultContact
+        
+        let session = URLSession.shared
+        
+        
+        let task =  session.dataTask(with: contactsUrlRequest) {
             (data, response, error) in
-            // check for any errors
+            
+            //            guard error == nil else {
+            //                throw  ContactPostError.callError(url: "http://10.59.1.104:3000/contact/")}
+            //
+            //            guard let responseData = data else {
+            //                throw ContactPostError.noData
+            //            }
+            
             guard error == nil else {
-                print("error calling GET on /todos/1")
+                print("error calling POST on http://10.59.1.104:3000/contact/")
                 print(error!)
                 return
             }
-            // make sure we got data
             guard let responseData = data else {
                 print("Error: did not receive data")
                 return
             }
-            // parse the result as JSON, since that's what the API provides
+            
             do {
-                guard let todo = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: AnyObject] else {
-                    print("error trying to convert data to JSON")
-                    return
-                }
-                // now we have the todo, let's just print it to prove we can access it
-                print("The todo is: " + todo.description)
                 
-                // the todo object is a dictionary
-                // so we just access the title using the "title" key
-                // so check for a title and print it if we have one
-                guard let todoTitle = todo["title"] as? String else {
-                    print("Could not get todo title from JSON")
-                    return
+//                print(try JSONSerialization.data(withJSONObject: responseData,
+//                                                 options: .prettyPrinted))
+//                
+                guard let receivedTodo = try JSONSerialization.jsonObject(with: responseData,
+                                                                          options: []) as? [String: Any] else {
+                                                                            print("Could not get JSON from responseData as dictionary")
+                                                                            return
                 }
-                print("The title is: " + todoTitle)
-            } catch  {
-                print("error trying to convert data to JSON")
+                
+                var returnedContact = self.fromProps(prop: receivedTodo, theFileId: contact.fileId)
+                
+                returnedContact.fileId = contact.fileId
+                
+                try self.saveData(contact: returnedContact)
+            } catch let err as NSError {
+                print(err)
+                print("error parsing response from POST on /todos" )
                 return
             }
+            
         }
+        
         
         task.resume()
     }

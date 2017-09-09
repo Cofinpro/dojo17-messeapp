@@ -62,3 +62,6 @@ typings/
 backend/package-lock.json
 
 .DS_Store
+UserInterfaceState.xcuserstate
+.xcbkptlist
+backend/export/data.xlsx
