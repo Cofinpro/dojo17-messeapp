@@ -1,12 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
-const checkIncoming = require('./modules/checkIncomingData.js');
-const validator = require('./modules/validator.js');
+const checkIncoming = require('./modules/checkIncomingData');
+const validator = require('./modules/validator');
+const exporter =  require('./modules/jsonToXls');
+//const sec = require('./modules/security-oauth');
 const mailer = require('./modules/mailer/mailer.js');
 
 const app = express();
 app.use(bodyParser.json());
+//sec.securityConfiguration(app);
 
 
 const server = app.listen(3000, function () {
@@ -65,4 +68,4 @@ app.get('/downloadExport', (req, res)=> {
 // Generate export and send per mail
 app.get('/sendExport', (req, res) => {
 
-});
+})
