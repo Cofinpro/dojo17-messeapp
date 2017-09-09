@@ -1,5 +1,6 @@
-const jwt = require('express-jwt');
-const rsaValidation = require('auth0-api-jwt-rsa-validation');
+var jwt = require('express-jwt');
+var rsaValidation = require('auth0-api-jwt-rsa-validation');
+var jwks = require('jwks-rsa');
 
 // We’ll create a middleware function to validate the access token when our API is called
 // Note that the audience field is the identifier you gave to your API.

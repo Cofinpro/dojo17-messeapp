@@ -3,10 +3,11 @@ const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData');
 const validator = require('./modules/validator');
+//const sec = require('./modules/security-oauth');
 
 const app = express();
 app.use(bodyParser.json());
-sec.securityConfiguration(app);
+//sec.securityConfiguration(app);
 
 
 const server = app.listen(3000, function () {
