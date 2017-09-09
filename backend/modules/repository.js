@@ -25,16 +25,18 @@ var contactSchema = new mg.Schema({
 
     rating: { type: Number, min: 0, max: 5 },
     comment: String,
-    department: String,
+    departmentTechnical: { type: Boolean, required: true },
+    departmentBank: { type: Boolean, required: true },
+    departmentCentral: { type: Boolean, required: true },
 
     timestamp: { type: Date, default: Date.now }
 });
 
 var contactRepo = mg.model('Contact', contactSchema);
-contactRepo.collection.deleteMany({});
+//contactRepo.collection.deleteMany({});
 
 getAllContacts = (callback) => {
-    contactRepo.find(callback);
+    contactRepo.find(callback).lean();
 }
 
 createContact = (contact) => {

@@ -1,4 +1,5 @@
 const express = require('express');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData');
@@ -76,7 +77,7 @@ app.post('/contact', (req, res)=> {
     else res.send("data invalid");
 });
 
-app.patch('/contact', (req, res) => {
+app.put('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
 
@@ -92,7 +93,18 @@ app.patch('/contact', (req, res) => {
 // Export data and provide as XLS as download
 // params:
 app.get('/downloadExport', (req, res)=> {
+    repo.getAllContacts((err, contactArray) => {
+        path = exporter.JsonToXls(contactArray);
 
+        file = fs.readFileSync(path, 'binary');
+        stat = fs.statSync(path);
+
+        res.setHeader('Content-Length', stat.size);
+        res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        res.setHeader('Content-Disposition', 'attachment; filename=contacts.xlsx');
+        res.write(file, 'binary');
+        res.end();
+    });
 });
 
 // Generate export and send per mail
