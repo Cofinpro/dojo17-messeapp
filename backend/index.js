@@ -43,7 +43,6 @@ app.post('/contact', (req, res)=> {
         repo.createContact(data).then(
             (object) => {
                 res.send(object);
-                mailer.sendResponse(object)
             },
             (err) => res.send(err)
         );
@@ -58,6 +57,7 @@ app.put('/contact', (req, res) => {
     if (!checkIncoming.isValid(data.object) || !validator.validateData(data.object)) valid = false;
     if (valid) {
         repo.updateContact(data.id, data.object, (err, post) => {
+            mailer.sendResponse(post);
             res.send(post);
         });
     }

@@ -5,7 +5,7 @@ var fs = require('fs');
 
 
 const sendResponse = function(dataObject) {
-    renderTemplate(dataObject, global.config.subjectResponse, 'response');
+    renderTemplate(dataObject, global.config.subjectResponse, 'response/standard');
 }
 
 const sendExport = function(dataObject) {
