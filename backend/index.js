@@ -3,7 +3,6 @@ const fs = require('fs');
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
-const checkIncoming = require('./modules/checkIncomingData');
 const validator = require('./modules/validator');
 const exporter =  require('./modules/jsonToXls');
 //const sec = require('./modules/security-oauth');
@@ -39,8 +38,7 @@ app.post('/contact', (req, res)=> {
     const data = req.body;
     let valid = true;
 
-    if (!checkIncoming.isValid(data) || !validator.validateData(data)) valid = false;
-    if (valid) {
+    if (validator.validateData(data)) {
         repo.createContact(data).then(
             (object) => {
                 res.send(object);
@@ -55,8 +53,7 @@ app.put('/contact', (req, res) => {
     const data = req.body;
     let valid = true;
 
-    if (!checkIncoming.isValid(data.object) || !validator.validateData(data.object)) valid = false;
-    if (valid) {
+    if (validator.validateData(data.object)) {
         repo.updateContact(data.id, data.object, (err, post) => {
             mailer.sendResponse(post);
             res.send(post);
