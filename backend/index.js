@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require('fs');
+const cors = require('cors')
 const bodyParser = require('body-parser');
 const repo = require('./modules/repository')
 const checkIncoming = require('./modules/checkIncomingData');
@@ -7,10 +8,10 @@ const validator = require('./modules/validator');
 const exporter =  require('./modules/jsonToXls');
 //const sec = require('./modules/security-oauth');
 const mailer = require('./modules/mailer/mailer.js');
-const fs = require('fs');
 
 const app = express();
 app.use(bodyParser.json());
+app.use(cors());
 global.config = JSON.parse(fs.readFileSync(__dirname + '/../config.json', 'utf8'));
 //sec.securityConfiguration(app);
 
