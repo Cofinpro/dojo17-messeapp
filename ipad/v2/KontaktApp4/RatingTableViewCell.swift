@@ -8,6 +8,13 @@
 
 import UIKit
 
+extension UITableViewCell {
+    
+    var indexPath: IndexPath? {
+        return (superview as? UITableView)?.indexPath(for: self)
+    }
+}
+
 class RatingTableViewCell: UITableViewCell {
     
     @IBOutlet weak var firstName: UILabel!
@@ -15,9 +22,11 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var rating: CosmosView!
-
     
     @IBOutlet weak var comment: UITextField!
+    
+    @IBOutlet weak var infoButton: UIButton!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()

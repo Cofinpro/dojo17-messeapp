@@ -64,10 +64,11 @@ app.get('/downloadExport', (req, res)=> {
     repo.getAllContacts((err, contactArray) => {
         console.log(contactArray)
         path = exporter.JsonToXls(contactArray);
-        
+
+
         file = fs.readFileSync(path, 'binary');
         stat = fs.statSync(path);
-        
+
         res.setHeader('Content-Length', stat.size);
         res.setHeader('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
         res.setHeader('Content-Disposition', 'attachment; filename=contacts.xlsx');
