@@ -15,7 +15,7 @@ const server = app.listen(3000, function () {
 
 app.get('/', (req, res)=> {
     res.send('What can i do with the Gartenschuh');
-    mailer.sendResponse();
+    mailer.sendResponse('julian.reichwein@cofinpro.de');
 });
 
 // Get all entries
@@ -37,7 +37,7 @@ app.post('/contact', (req, res)=> {
     if (valid) {
         repo.createContact(data).then(
             (object) => res.send(object),
-            (err) => res.send(err),
+            (err) => res.send(err)
         );
     }
     else res.send("data invalid")
