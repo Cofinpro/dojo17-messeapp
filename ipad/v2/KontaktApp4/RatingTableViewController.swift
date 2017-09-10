@@ -14,7 +14,7 @@ class RatingTableViewController: UITableViewController {
     
     let jsonFileHandler: JsonFileHandler = JsonFileHandler()
     
-    var error : NSError? = nil
+    var error : NSError? = nil    
     
     @IBAction func showApplicantInfo(_ sender: AnyObject) {
         print("Info Button pressed")

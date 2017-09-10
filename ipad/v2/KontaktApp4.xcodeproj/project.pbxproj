@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		85080C711F643E6900A349D3 /* cofinpro2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 85080C701F643E6900A349D3 /* cofinpro2.gif */; };
+		852F59031F6531CD00757A82 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 852F58FF1F6531CD00757A82 /* 4.jpg */; };
+		852F59041F6531CD00757A82 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 852F59001F6531CD00757A82 /* 5.jpg */; };
+		852F59051F6531CD00757A82 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 852F59011F6531CD00757A82 /* 2.jpg */; };
 		853E0A951F64377D00259B2B /* cofinpro.png in Resources */ = {isa = PBXBuildFile; fileRef = 853E0A941F64377D00259B2B /* cofinpro.png */; };
 		856789B61F64251000FA6698 /* DataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856789B31F64251000FA6698 /* DataViewController.swift */; };
 		856789B71F64251000FA6698 /* ModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856789B41F64251000FA6698 /* ModelController.swift */; };
@@ -27,12 +30,14 @@
 
 /* Begin PBXFileReference section */
 		85080C701F643E6900A349D3 /* cofinpro2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cofinpro2.gif; sourceTree = "<group>"; };
+		852F58FF1F6531CD00757A82 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		852F59001F6531CD00757A82 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		852F59011F6531CD00757A82 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		853E0A941F64377D00259B2B /* cofinpro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cofinpro.png; sourceTree = "<group>"; };
 		856789B31F64251000FA6698 /* DataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewController.swift; sourceTree = "<group>"; };
 		856789B41F64251000FA6698 /* ModelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelController.swift; sourceTree = "<group>"; };
 		856789B51F64251000FA6698 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		856789C01F6428B200FA6698 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
-		856789C11F6428B200FA6698 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		856789C41F6429E600FA6698 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = images; path = KontaktApp4/images; sourceTree = "<group>"; };
 		85D8A8911F635C09008154A1 /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		85DDF53D1F62E80D00B88C32 /* KontaktApp4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KontaktApp4.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +70,9 @@
 				85080C701F643E6900A349D3 /* cofinpro2.gif */,
 				853E0A941F64377D00259B2B /* cofinpro.png */,
 				856789C01F6428B200FA6698 /* 1.jpg */,
-				856789C11F6428B200FA6698 /* 2.jpg */,
+				852F58FF1F6531CD00757A82 /* 4.jpg */,
+				852F59001F6531CD00757A82 /* 5.jpg */,
+				852F59011F6531CD00757A82 /* 2.jpg */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -169,7 +176,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				852F59051F6531CD00757A82 /* 2.jpg in Resources */,
 				856789C51F6429E600FA6698 /* images in Resources */,
+				852F59041F6531CD00757A82 /* 5.jpg in Resources */,
+				852F59031F6531CD00757A82 /* 4.jpg in Resources */,
 				85080C711F643E6900A349D3 /* cofinpro2.gif in Resources */,
 				85DDF54D1F62E80D00B88C32 /* LaunchScreen.storyboard in Resources */,
 				85DDF54A1F62E80D00B88C32 /* Assets.xcassets in Resources */,

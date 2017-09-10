@@ -26,6 +26,12 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet weak var comment: UITextField!
     
     @IBOutlet weak var infoButton: UIButton!
+    
+    @IBOutlet weak var fachiSwitch: UISwitch!
+    
+    @IBOutlet weak var techiSwitch: UISwitch!
+    
+    @IBOutlet weak var csSwitch: UISwitch!
 
     override func awakeFromNib() {
         super.awakeFromNib()
