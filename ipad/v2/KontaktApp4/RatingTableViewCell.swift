@@ -32,6 +32,8 @@ class RatingTableViewCell: UITableViewCell {
     @IBOutlet weak var techiSwitch: UISwitch!
     
     @IBOutlet weak var csSwitch: UISwitch!
+    
+    var applicant: Contact!
 
     override func awakeFromNib() {
         super.awakeFromNib()

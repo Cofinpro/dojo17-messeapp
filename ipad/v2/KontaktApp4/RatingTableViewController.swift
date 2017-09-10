@@ -26,7 +26,7 @@ class RatingTableViewController: UITableViewController {
         
         // create the alert
         let title: String = "Beschreibung von " + cell.firstName.text!
-        let beschreibung: String = cell.firstName.text! + "\n" + cell.name.text! + "\n"
+        let beschreibung: String = cell.applicant.salutation + "\n" + cell.firstName.text! + "\n" + cell.name.text! + "\n" + cell.applicant.university + "\n" + cell.applicant.course + "\n" + cell.applicant.graduation + "\n" + cell.applicant.email + "\n"
         let alert = UIAlertController(title: title, message: beschreibung, preferredStyle: UIAlertControllerStyle.alert)
         
         // add an action (button)
@@ -78,6 +78,7 @@ class RatingTableViewController: UITableViewController {
         cell.rating.rating = Double(contact.rating)
         cell.comment.text = contact.comment
         cell.infoButton.tag = indexPath.section
+        cell.applicant = contact
         
         cell.rating.didFinishTouchingCosmos = saveRating
         
