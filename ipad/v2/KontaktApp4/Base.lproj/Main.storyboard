@@ -136,10 +136,13 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="comment" destination="4ia-Pw-SVT" id="FIH-HK-GGB"/>
+                                    <outlet property="csSwitch" destination="N9X-C5-4O0" id="Vy5-bO-Owk"/>
+                                    <outlet property="fachiSwitch" destination="XxG-XW-7DQ" id="sgE-u5-lwp"/>
                                     <outlet property="firstName" destination="NEl-tB-6Ja" id="5tw-Xd-a3w"/>
                                     <outlet property="infoButton" destination="PIu-R4-oGC" id="q8C-EQ-eP6"/>
                                     <outlet property="name" destination="beY-Ep-K1B" id="0Nm-29-yI7"/>
                                     <outlet property="rating" destination="hHE-SV-ueo" id="KVd-ir-qNU"/>
+                                    <outlet property="techiSwitch" destination="OKc-in-nEo" id="EUl-J1-tit"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

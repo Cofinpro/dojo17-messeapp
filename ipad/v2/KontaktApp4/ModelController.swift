@@ -27,7 +27,7 @@ class ModelController: NSObject, UIPageViewControllerDataSource {
     override init() {
         super.init()
         // Create the data model.
-        pageData = ["Die beiden Entwickler", "Feierabend"]
+        pageData = ["Die beiden Entwickler dieser App", "Kevin - Auch bei der Arbeit besoffen", "Belohnung muss sein", ""]
         getImages()
         
     }
