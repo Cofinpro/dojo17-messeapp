@@ -57,7 +57,7 @@ app.put('/contact', (req, res) => {
         repo.updateContact(data.id, data.object, (err, post) => {
             if (err) res.send(err)
 
-            mailer.sendResponse(post);
+            mailer.sendResponse(post.toObject());
             res.send(post);
         });
     }
